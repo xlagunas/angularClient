@@ -1,4 +1,56 @@
 
-Main menu abstracte! <button ng-click=button()> Canvia de vista!</button>
+<!--Main menu abstracte! <button ng-click=button()> Canvia de vista!</button>-->
 
-<div class="container" ui-view=""></div>
+<!--<div class="container" ui-view=""></div>-->
+
+<div class="col-md-12 col-lg-12 full-height">
+    <div class="col-md-2 full-height">
+        <div class="row left-menu">
+            <ul class="list-unstyled">
+                <li class="list-item text-center white-font"><h3></span> Vicon</h3></li>
+                <li class="list-item white-font"><h4><span class="fa fa-envelope"></span> Missatges</h4></li>
+                <li class="list-sub-item white-font"><a ui-sref="home.mail"><span class=""><h5>Entrada</h5></span></a></li>
+                <li class="list-sub-item white-font"><a href="#/mail/sent"><span><h5>Sortida</h5></span></a></li>
+                <li class="list-item white-font"><h4><span class="fa fa-calendar"></span> Events</h4></li>
+                <li class="list-sub-item white-font"><a href="#"><span><h5>Avui</h5></span></a></li>
+                <li class="list-item white-font"><h4><span class="fa fa-user"></span> Contactes</h4></li>
+                <li class="list-sub-item white-font"><a href="#"><span><h5>Gestió</h5></span></a></li>
+            </ul>
+        </div>
+        <!--<div class="row right-menu" ng-controller="contactCtrl">-->
+        <div class="row right-menu" ng-controller="NewUserCtrl">
+            <div class="row contact-header">
+                <div class="col-lg-12">
+                    <div class="input-group lateral-margin" >
+                        <input type="text" ng-model="userTextBox.username" class="form-control" placeholder="Filtra o Afegeix Usuaris">
+                          <div class="input-group-btn">
+                            <button class="btn btn-default" ng-disabled="(contacts|filter:userTextBox).length > 0 "><i class="fa fa-plus"></i></button>
+                          </div>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <ul class="list-unstyled contact-list">
+
+                <contact ng-repeat="contact in contacts| filter:userTextBox" user="contact" ng-click="selectContact(contact)"></contact>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="col-md-10 full-height main-content no-padding">
+        <nav class="navbar navbar-default navbar-static-top fixed-size-navbar navbar-fixed-size" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userSession.username}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Edit user info <i class="pull-right fa fa-edit"></i></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="" ui-view></div>
+    </div>
+</div>

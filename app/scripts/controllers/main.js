@@ -3,8 +3,10 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal) {
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService) {
             $log.info('Entro al main controller!');
+
+            $scope.userSession = UserService.getSession();
 
             $scope.method = function () {
                 $log.info('Crido al method');
@@ -29,6 +31,8 @@
                         }
                     });
             };
+
+            $log.info($scope.userSession);
 
         });
 
