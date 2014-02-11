@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ui-view=""></div>
+    <div class="" ui-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -41,8 +41,9 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
 
-        <!-- build:js scripts/plugins.js -->
+    <!-- build:js scripts/plugins.js -->
         <script src="bower_components/sass-bootstrap/js/affix.js"></script>
         <script src="bower_components/sass-bootstrap/js/alert.js"></script>
         <script src="bower_components/sass-bootstrap/js/button.js"></script>
@@ -61,7 +62,9 @@
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -69,6 +72,9 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/landing.js"></script>
         <script src="scripts/controllers/secondary.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/newUser.js"></script>
+        <script src="scripts/services/WebsocketService.js"></script>
         <!-- endbuild -->
 </body>
 </html>

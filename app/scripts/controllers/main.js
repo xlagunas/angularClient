@@ -1,26 +1,35 @@
-'use strict';
+/*global angular*/
+(function () {
+    'use strict';
 
-angular.module('angularClientApp')
-  .controller('MainCtrl', function ($scope, $log, $state, $timeout) {
-    $log.info("Entro al main controller!");
+    angular.module('angularClientApp')
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal) {
+            $log.info('Entro al main controller!');
 
-        $timeout(function() {
-            $log.info("derrerd callback!")
-            $state.go('main.secondary');
-        }, 4000);
+            $scope.method = function () {
+                $log.info('Crido al method');
+            };
 
-        $timeout(function() {
-            $log.info("derrerd callback!")
-            $state.go('main.landing');
-        }, 8000);
+            $scope.button = function() {
+                $modal.open({
+                        templateUrl: 'views/modals/landing.html',
+                        controller: ['$scope', function($scope) {
+                            $scope.dismiss = function() {
+                                $scope.$dismiss();
+                            };
 
-        $timeout(function() {
-            $log.info("derrerd callback!")
-            $state.go('main.secondary');
-        }, 12000);
+                            $scope.save = function() {
+                                $scope.$close(true);
+                            };
+                        }]
+                    })
+                    .result.then(function(result) {
+                        if (result) {
+                            $state.go('main.secondary');
+                        }
+                    });
+            };
 
-        $timeout(function() {
-            $log.info("derrerd callback!")
-            $state.go('main.landing');
-        }, 16000);
-  });
+        });
+
+}());

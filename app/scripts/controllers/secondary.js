@@ -1,6 +1,9 @@
-'use strict';
+/*global angular*/
+(function () {
+    'use strict';
 
-angular.module('angularClientApp')
-  .controller('SecondaryCtrl', function ($scope, $log) {
-    $log.info("Aquesta és el segon fill");
-  });
+    angular.module('angularClientApp')
+        .controller('SecondaryCtrl', function ($scope, $log) {
+            $log.info('Aquesta és el segon fill');
+        });
+}());
