@@ -6,6 +6,28 @@
         .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService) {
             $log.info('Entro al main controller!');
 
+            $scope.toggleSideBar = function (sideBar) {
+                $scope.visibleColumns[sideBar] = ! $scope.visibleColumns[sideBar];
+                $log.info(sideBar +' '+ $scope.visibleColumns[sideBar]);
+
+                if ($scope.visibleColumns.actions && $scope.visibleColumns.contacts ) {
+                    $scope.mainContentSizeClass.value = 'col-lg-12 col-md-12';
+                    $log.debug('Tots dos collapsed: true');
+                }
+                else if (!$scope.visibleColumns.actions && !$scope.visibleColumns.contacts) {
+                    $scope.mainContentSizeClass.value = 'col-lg-8 col-md-8';
+                    $log.debug('Tots dos collapsed: false');
+                }
+                else {
+                    $scope.mainContentSizeClass.value = 'col-lg-10 col-md-10';
+                    $log.debug('entra a 1 dels dos');
+                }
+            };
+
+            $scope.mainContentSizeClass = {value: 'col-lg-12 col-md-12'};
+
+            $scope.visibleColumns = {actions: true, contacts: true};
+
             $scope.userSession = UserService.getSession();
 
             $scope.method = function () {
