@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input id="username" ng-model="user.username" type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input id="password" ng-model="user.password" type="password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-default" ng-click="loginButton()">Sign in</button>
+                <span class="pull-right">Not a user? <a ui-sref="newUser">register now!</a></span>
+            </div>
+        </div>
+    </form>
+</div>

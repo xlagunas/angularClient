@@ -21,11 +21,11 @@
 
 </nav>
 
-<div class="col-md-1 col-lg-1" ng-hide="visibleColumns.actions">
+<div class="col-md-1 col-lg-1 col-sm-1" ng-hide="visibleColumns.actions">
     <div class="row">
-        <nav class="sidebar col-lg-1 col-md-1">
+        <nav class="col-lg-1 col-md-1 col-sm-1">
             <ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">
-                <ul class="col-md-12 col-lg-12 list-unstyled text-center">
+                <ul class="col-md-12 col-lg-12 col-sm-12 list-unstyled text-center">
                     <li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>
                     <li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>
                     <li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>
@@ -35,27 +35,45 @@
     </div>
 </div>
 <div ng-class="mainContentSizeClass.value" >
-    <div class="row">
-        <h3>
-            <!--<button class="btn btn-default" ng-click="toggleSideBar('actions')">-->
-                <!--<i class="fa fa-caret-left"></i> Actions-->
-            <!--</button>-->
-            <!--<button class="btn btn-default pull-right" ng-click="toggleSideBar('contacts')">-->
-                <!--Contacts <i class="fa fa-caret-right"></i>-->
-            <!--</button>-->
-        </h3>
-    </div>
+    <!--<div class="row">-->
+        <!--<h3>-->
+            <!--&lt;!&ndash;<button class="btn btn-default" ng-click="toggleSideBar('actions')">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="fa fa-caret-left"></i> Actions&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button class="btn btn-default pull-right" ng-click="toggleSideBar('contacts')">&ndash;&gt;-->
+                <!--&lt;!&ndash;Contacts <i class="fa fa-caret-right"></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+        <!--</h3>-->
+    <!--</div>-->
     <div class="" ui-view></div>
 </div>
 </div>
-<div class="col-md-3 col-lg-3" ng-hide="visibleColumns.contacts">
-    <div class="row affix col-lg-3 col-md-3" data-spy="affix" data-offset-top="10">
-        <div class="input-group">
+<div class="col-md-3 col-lg-3 col-sm-3" ng-hide="visibleColumns.contacts">
+    <div class="row affix col-lg-3 col-md-3 col-sm-3" data-spy="affix" data-offset-top="10">
+        <div class="input-group list-icon-padding col-md-8 pull-right">
             <input type="text" class="form-control">
             <span class="input-group-addon"><i class="fa fa-plus"></i></span>
         </div>
-            <li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>
-            <li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>
-        </ul>
+        <div class="list-group">
+            <div class="pull-right list-group-item col-md-8 list-group-item-success">
+                <span class="pull-left col-lg-2">
+                    <i class="fa fa-youtube fa-2x"></i>
+                </span>
+                <div class="media-body">
+                    <h5 class="media-heading text-right"> Xavier Lagunas Calpe</h5>
+                </div>
+            </div>
+            <div class="pull-right list-group-item col-md-8">
+                <span class="pull-left col-lg-2">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </span>
+                <div class="media-body">
+                    <h5 class="media-heading text-right"> Carles Lagunas Calpe</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!--<li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>-->
+            <!--<li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>-->
     </div>
 </div>
