@@ -24,9 +24,9 @@
                 }
             };
 
-            $scope.mainContentSizeClass = {value: 'col-lg-12 col-md-12'};
+            $scope.mainContentSizeClass = {value: 'col-lg-10 col-md-10'};
 
-            $scope.visibleColumns = {actions: true, contacts: true};
+            $scope.visibleColumns = {actions: false, contacts: true};
 
             $scope.userSession = UserService.getSession();
 
