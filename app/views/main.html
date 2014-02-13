@@ -1,6 +1,3 @@
-
-<!--Main menu abstracte! <button ng-click=button()> Canvia de vista!</button>-->
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -8,49 +5,57 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><button class="btn btn-default navbar-btn" ng-click="toggleSideBar('contacts')"><i class="fa fa-users"></i></button></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userSession.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Edit user info <i class="pull-right fa fa-edit"></i></a></li>
+                        <li><a href="#">Edit user info<i class="pull-right fa fa-edit"></i></a></li>
+                        <li ng-click="toggleSideBar('contacts')"><a href="#">Show contacts<i class="pull-right fa fa-users"></i></a></li>
                         <li class="divider"></li>
                         <li><a href="#">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
                     </ul>
                 </li>
-                <li><button class="btn btn-default navbar-btn"><i class="fa fa-align-justify"></i></button></li>
             </ul>
         </div>
     </div>
 
 </nav>
-<!--<div class="container" ui-view=""></div>-->
-<div class="col-md-2 col-lg-2" ng-hide="visibleColumns.actions">
+
+<div class="col-md-1 col-lg-1" ng-hide="visibleColumns.actions">
     <div class="row">
-        <ul class="col-md-12 col-lg-12 list-unstyled">
-            <li><h3></span> ConfApp</h3></li>
-            <li><h4><span class="fa fa-envelope"></span> Missatges</h4></li>
-            <li><a ui-sref="home.mail"><span class=""><h5>Entrada</h5></span></a></li>
-            <li><a href="#/mail/sent"><span><h5>Sortida</h5></span></a></li>
-            <li><h4><span class="fa fa-calendar"></span> Events</h4></li>
-            <li><a href="#"><span><h5>Avui</h5></span></a></li>
-            <li><h4><span class="fa fa-user"></span> Contactes</h4></li>
-            <li><a href="#"><span><h5>Gestió</h5></span></a></li>
-        </ul>
+        <nav class="sidebar col-lg-1 col-md-1">
+            <ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">
+                <ul class="col-md-12 col-lg-12 list-unstyled text-center">
+                    <li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>
+                    <li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>
+                    <li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>
+                </ul>
+            </ul>
+        </nav>
     </div>
 </div>
 <div ng-class="mainContentSizeClass.value" >
     <div class="row">
         <h3>
-            <button class="btn btn-default" ng-click="toggleSideBar('actions')">
-                <i class="fa fa-caret-left"></i> Actions
-            </button>
-            <button class="btn btn-default pull-right" ng-click="toggleSideBar('contacts')">
-                Contacts <i class="fa fa-caret-right"></i>
-            </button>
+            <!--<button class="btn btn-default" ng-click="toggleSideBar('actions')">-->
+                <!--<i class="fa fa-caret-left"></i> Actions-->
+            <!--</button>-->
+            <!--<button class="btn btn-default pull-right" ng-click="toggleSideBar('contacts')">-->
+                <!--Contacts <i class="fa fa-caret-right"></i>-->
+            <!--</button>-->
         </h3>
     </div>
     <div class="" ui-view></div>
 </div>
 </div>
-<div class="col-md-2 col-lg-2" style="background-color: green;" ng-hide="visibleColumns.contacts" data-collapse-type = "horizontal" >
-    <p>Contacts</p>
+<div class="col-md-3 col-lg-3" ng-hide="visibleColumns.contacts">
+    <div class="row affix col-lg-3 col-md-3" data-spy="affix" data-offset-top="10">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+        </div>
+            <li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>
+            <li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>
+        </ul>
+    </div>
 </div>
