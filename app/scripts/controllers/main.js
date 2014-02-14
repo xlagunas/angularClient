@@ -3,8 +3,12 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService) {
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, WebsocketService) {
             $log.info('Entro al main controller!');
+
+            $scope.contactList = {loaded: false};
+            $scope.visibleColumns = {actions: false, contacts: false};
+            $scope.mainContentSizeClass = {value: 'col-lg-8 col-md-8'};
 
             $scope.toggleSideBar = function (sideBar) {
                 $scope.visibleColumns[sideBar] = ! $scope.visibleColumns[sideBar];
@@ -24,11 +28,8 @@
                 }
             };
 
-            $scope.mainContentSizeClass = {value: 'col-lg-10 col-md-10'};
-
-            $scope.visibleColumns = {actions: false, contacts: true};
-
             $scope.userSession = UserService.getSession();
+            $scope.userContacts = UserService.getUsers();
 
             $scope.method = function () {
                 $log.info('Crido al method');
@@ -55,6 +56,22 @@
             };
 
             $log.info($scope.userSession);
+
+            $scope.toggleContacts = function () {
+                $log.debug($scope.contactList);
+                $scope.contactList.loaded = true;
+            };
+            $log.info(UserService.getSession());
+            $log.info(UserService.getUsers());
+
+            WebsocketService.emit('list contacts:accepted', UserService.getSession().pending, function(data){
+                if (data){
+                    $log.info(data);
+                    UserService.addUsers('accepted', data);
+                    $log.info(UserService.getUsers());
+                    $scope.contactList.loaded = true;
+                }
+            });
 
         });
 

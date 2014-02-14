@@ -6,7 +6,7 @@
         .service('UserService', function UserService($log, _) {
         
             var user = {};
-            var contacts = [];
+            var contacts = {accepted: [], requested: [], pending: []};
         
             function addUser(user){
                 $log.debug('Adding User');
@@ -26,10 +26,10 @@
                 }
             }
         
-            function deleteUser(user){
+            function deleteUser(contactType, user){
                 $log.debug('Removing User');
-                var filteredContacts = _.filter(contacts, function(data){
-                    return data.info.username != user.username;
+                var filteredContacts = _.filter(contacts[contactType], function(data){
+                    return data.username !== user.username;
                 });
                 angular.copy(filteredContacts, contacts);
             }
@@ -39,17 +39,17 @@
                 return contacts;
             }
         
-            function addUsers(users){
+            function addUsers(contactType, users){
                 $log.info('adding users');
-                angular.copy(users, contacts);
+                angular.copy(users, contacts[contactType]);
             }
         
             function setSession(userData) {
-                user = userData;
+                user.info = userData;
             }
         
             function getSession(){
-                return user;
+                return user.info;
             }
         
             return {
