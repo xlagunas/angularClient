@@ -43,7 +43,7 @@
         <div ng-if="contactList.loaded">
             <div class="input-group list-icon-padding col-md-9 pull-right">
                 <input type="text" class="form-control" ng-model="userTextBox.username" placeholder="Find by username">
-                <span class="input-group-btn"><button class="btn btn-default" type="button" ng-disabled="(userContacts.accepted|filter:userTextBox).length > 0 "><i class="fa fa-plus"></i></button></span>
+                <span class="input-group-btn"><button class="btn btn-default" type="button" ng-disabled="(userContacts.accepted|filter:userTextBox).length > 0" ng-click="findContacts()"><i class="fa fa-plus"></i></button></span>
             </div>
             <a ui-sref="main.secondary" class="pull-right list-group-item col-md-8" ng-repeat="contact in userContacts.accepted | filter:userTextBox">
                 <span class="pull-left col-lg-2">
