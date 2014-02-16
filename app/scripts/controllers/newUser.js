@@ -2,9 +2,13 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('NewUserCtrl', function ($scope, $log, $sce, UserService) {
+        .controller('NewUserCtrl', function ($scope, $log, $sce) {
+
+            $scope.form = {value: false};
             $scope.checkUsernameAvailable = function() {
                 getMedia();
+                $scope.form = {value: true};
+                $log.debug($scope.form);
             };
 
             function getMedia () {
@@ -27,7 +31,5 @@
             };
 
         });
-
-
 
 }());
