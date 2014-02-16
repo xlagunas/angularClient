@@ -38,7 +38,9 @@
 
             $scope.findContacts = function () {
                 WebsocketService.emit('contacts:find', $scope.userTextBox, function(data){
+                    $scope.foundUsers = data;
                     console.log(data);
+                    $state.transitionTo('main.search')
                 });
             };
 

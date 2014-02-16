@@ -8,7 +8,7 @@
         'ui.router',
         'ui.bootstrap'
     ])
-        .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+        .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider) {
 
             $urlRouterProvider.otherwise('/login');
             $stateProvider
@@ -28,6 +28,11 @@
                     templateUrl: 'views/secondary.html',
                     controller: 'SecondaryCtrl'
                 })
+                .state('main.search', {
+                    url: '/search',
+                    templateUrl: 'views/searchList.html',
+                    controller: 'SearchListCtrl'
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'views/login.html',
@@ -38,6 +43,8 @@
                     templateUrl: 'views/newUser.html',
                     controller: 'NewUserCtrl'
                 });
+
+            $sceProvider.enabled(true);
 
             $sceDelegateProvider.resourceUrlWhitelist(['self', /^https?:\/\/(cdn\.)?vb2.i2cat.net/]);
         });
