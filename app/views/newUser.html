@@ -1,1 +1,56 @@
-<p>This is the newUser view.</p>
+<div class="container">
+    <form class="form-horizontal" role="form" ng-submit="submit(newUser)">
+        <div ng-class="{'has-error': form.value, 'has-feedback': form.value}" class="form-group">
+            <label for="username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input id="username" class="form-control" type="text" ng-model="newUser.username" ng-blur="checkUsernameAvailable()" placeholder="Username...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+                <input id="name" ng-disabled="{{availability.available === 'false'}}" class="form-control" type="text" ng-model="newUser.name" placeholder="Name...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="middlename" class="col-sm-3 control-label">Middlename</label>
+            <div class="col-sm-9">
+                <input id="middlename" class="form-control" type="text" ng-model="newUser.firstSurname" placeholder="First surname...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="surname" class="col-sm-3 control-label">Surname</label>
+            <div class="col-sm-9">
+                <input id="surname" class="form-control" type="text" ng-model="newUser.lastSurname" placeholder="Last surname...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pass" class="col-sm-3 control-label ">Password</label>
+            <div class="col-sm-9">
+                <input id="pass" class="form-control" type="password" ng-model="newUser.password" placeholder="Password...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pass-confirm" class="col-sm-3 control-label">Confirm password</label>
+            <div class="col-sm-9">
+                <input id="pass-confirm" class="form-control" type="text" ng-model="passConfirmation" placeholder="Confirm password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="video" class="col-sm-3 control-label">Take a photo of yourself</label>
+            <div class="col-sm-9">
+                <video id="video" autoplay ng-src="{{localStream}}" class="col-lg-6 col-md-6"></video>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="submit" class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <input id="submit" ng-disabled="form.value" class="form-control btn btn-success" type="submit" ng-click="createUser()">
+            </div>
+        </div>
+
+
+    </form>
+
+    </div>

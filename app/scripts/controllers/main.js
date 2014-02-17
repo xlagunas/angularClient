@@ -9,6 +9,7 @@
             $scope.contactList = {loaded: false};
             $scope.visibleColumns = {actions: false, contacts: false};
             $scope.mainContentSizeClass = {value: 'col-lg-8 col-md-8'};
+            $scope.userTextBox = {};
 
             $scope.toggleSideBar = function (sideBar) {
                 $scope.visibleColumns[sideBar] = ! $scope.visibleColumns[sideBar];
@@ -33,6 +34,14 @@
 
             $scope.method = function () {
                 $log.info('Crido al method');
+            };
+
+            $scope.findContacts = function () {
+                WebsocketService.emit('contacts:find', $scope.userTextBox, function(data){
+                    $scope.foundUsers = data;
+                    console.log(data);
+                    $state.transitionTo('main.search')
+                });
             };
 
             $scope.button = function() {
@@ -72,6 +81,8 @@
                     $scope.contactList.loaded = true;
                 }
             });
+
+
 
         });
 

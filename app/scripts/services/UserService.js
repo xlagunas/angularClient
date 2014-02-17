@@ -51,6 +51,19 @@
             function getSession(){
                 return user.info;
             }
+
+            function setLocalStream (localStream) {
+                $log.debug('Setting localSteram:');
+                $log.debug(localStream);
+                user.stream = {};
+                user.stream = localStream;
+            }
+
+            function getLocalStream () {
+                $log.debug('Returning stream: ');
+                $log.debug(user.stream);
+                return user.stream;
+            }
         
             return {
                 addUser : addUser,
@@ -58,7 +71,9 @@
                 deleteUser: deleteUser,
                 getUsers: getUsers,
                 setSession: setSession,
-                getSession: getSession
+                getSession: getSession,
+                setLocalStream: setLocalStream,
+                getLocalStream: getLocalStream
             };
         });
 
