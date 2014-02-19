@@ -6,7 +6,8 @@
         'ngCookies',
         'ngSanitize',
         'ui.router',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ui.calendar'
     ])
         .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider) {
 
@@ -17,6 +18,16 @@
                     url: '/main',
                     templateUrl: 'views/main.html',
                     controller: 'MainCtrl'
+                })
+                .state('main.calendar', {
+                    url:'/calendar',
+                    templateUrl: 'views/calendar.html',
+                    controller: 'CalendarCtrl'
+                })
+                .state('main.management', {
+                    url:'/management',
+                    templateUrl: 'views/management.html',
+                    controller: 'ManagementCtrl'
                 })
                 .state('main.landing', {
                     url: '/landing',

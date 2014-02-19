@@ -26,9 +26,13 @@
         <nav class="col-lg-1 col-md-1 col-sm-1">
             <ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">
                 <ul class="col-md-12 col-lg-12 col-sm-12 list-unstyled text-center">
-                    <li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>
-                    <li><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></li>
-                    <li><i class="fa fa-users fa-3x list-icon-padding icon-color"></i></li>
+                    <!--<li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>-->
+                    <li><a ui-sref="main.calendar"><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></a></li>
+                    <li>
+                        <a ui-sref="main.management">
+                        <i class="fa fa-users fa-3x list-icon-padding icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>
+                        </a>
+                    </li>
                 </ul>
             </ul>
         </nav>
@@ -37,39 +41,27 @@
 <div ng-class="mainContentSizeClass.value" >
     <div class="" ui-view></div>
 </div>
-</div>
+    <!--<div class="row affix col-lg-3 col-md-3 col-sm-3" data-spy="affix" data-offset-top="10">-->
+    <!--<div class="row col-lg-3 col-md-3 col-sm-3">-->
 <div class="col-md-3 col-lg-3 col-sm-3" ng-hide="visibleColumns.contacts">
-    <photo></photo>
-    <div class="row affix col-lg-3 col-md-3 col-sm-3" data-spy="affix" data-offset-top="10">
+    <div class="">
         <div ng-if="contactList.loaded">
-            <div class="input-group list-icon-padding col-md-9 pull-right">
+            <div class="input-group list-icon-padding col-md-12 col-lg-9 pull-right">
                 <input type="text" class="form-control" ng-model="userTextBox.username" placeholder="Find by username">
-                <span class="input-group-btn"><button class="btn btn-default" type="button" ng-disabled="(userContacts.accepted|filter:userTextBox).length > 0 "><i class="fa fa-plus"></i></button></span>
+                <!--<span class="input-group-btn"><button class="btn btn-default" ng-click="findContacts()" type="button" ng-disabled="(userContacts.accepted|filter:userTextBox).length > 0 "><i class="fa fa-plus"></i></button></span>-->
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="findContacts()" type="button"><i class="fa fa-plus"></i></button></span>
             </div>
-            <a ui-sref="main.secondary" class="pull-right list-group-item col-md-8" ng-repeat="contact in userContacts.accepted | filter:userTextBox">
-                <span class="pull-left col-lg-2">
-                    <img ng-src="contact.thumbnail">
-                </span>
-                <div class="media-body">
-                    <h5 class="media-heading text-right"> {{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</h5>
-                </div>
-            </a>
-            <a ui-sref="#" class="pull-right list-group-item col-md-8 list-group-item-success">
-                <span class="pull-left col-lg-2">
-                    <i class="fa fa-youtube fa-2x"></i>
-                </span>
-                <div class="media-body">
-                    <h5 class="media-heading text-right"> Janina Garrigós Sabaté</h5>
-                </div>
-            </a>
-            <a ui-sref="#" class="pull-right list-group-item col-md-8">
-                <span class="pull-left col-lg-2">
-                    <i class="fa fa-facebook fa-2x"></i>
-                </span>
-                <div class="media-body">
-                    <h5 class="media-heading text-right"> Raquel López Mallebrera</h5>
-                </div>
-            </a>
+            <div class="list-group">
+                <a ui-sref="main.secondary" class="pull-right list-group-item col-md-9" ng-repeat="contact in userContacts.accepted | filter:userTextBox">
+                    <span class="pull-left col-lg-2">
+                        <img class="media-object" ng-src="{{contact.thumbnail}}" width="64px">
+                    </span>
+                    <div class="media-body">
+                        <h5 class="media-heading text-right"> {{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</h5>
+                        <p class="text-center"><i class="fa fa-circle"></i> Away</p>
+                    </div>
+                </a>
+            </div>
         </div>
         <div ng-if="contactList.loaded == false">
             <div class="input-group list-icon-padding col-md-8 pull-right text-center">

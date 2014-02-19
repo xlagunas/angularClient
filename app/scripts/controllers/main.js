@@ -40,7 +40,7 @@
                 WebsocketService.emit('contacts:find', $scope.userTextBox, function(data){
                     $scope.foundUsers = data;
                     console.log(data);
-                    $state.transitionTo('main.search')
+                    $state.transitionTo('main.search');
                 });
             };
 
@@ -73,16 +73,27 @@
             $log.info(UserService.getSession());
             $log.info(UserService.getUsers());
 
-            WebsocketService.emit('list contacts:accepted', UserService.getSession().pending, function(data){
-                if (data){
-                    $log.info(data);
-                    UserService.addUsers('accepted', data);
-                    $log.info(UserService.getUsers());
+//                 COMENTAT PER A EVITAR QUE EL SERVIDOR PETI AL REINICAR VISTA
+
+            WebsocketService.emit('contacts:list','', function(contacts){
+                $log.debug('entro al contacts:list');
+                $log.debug(contacts);
+                if (contacts){
+                    Object.keys(contacts).forEach(function(key){
+                        $log.info(key);
+                        UserService.addUsers(key, contacts[key]);
+                    });
                     $scope.contactList.loaded = true;
                 }
             });
 
-
+            WebsocketService.on('contacts:update', function(contacts){
+                $log.info(contacts);
+                Object.keys(contacts).forEach(function(key){
+                    $log.info(key);
+                    UserService.addUsers(key, contacts[key]);
+                });
+            });
 
         });
 

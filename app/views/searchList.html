@@ -4,12 +4,12 @@
     <li class="row text-center no-margin no-padding" ng-repeat="contact in foundUsers" >
         <div class="container" style="background-color: #f5f5f5;">
             <div class="col-md-3">
-                <img height="100px" ng-src="http://localhost:8080/v2b/resources/img/{{contact.thumbnail}}">
+                <img height="100px" ng-src="{{contact.thumbnail}}">
             </div>
             <div class="col-md-9">
                 <h4>{{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</h4>
                 <h5>{{contact.username}}</h5>
-                <button class="btn btn-default" ng-click="requestFriendship(contact)"> Add Contact</button>
+                <button class="btn btn-default" ng-click="sendRequest(contact)"> Add Contact</button>
             </div>
         </div>
 </li>

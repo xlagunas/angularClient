@@ -2,32 +2,28 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('NewUserCtrl', function ($scope, $log, $sce) {
+        .controller('NewUserCtrl', function ($scope, $log, $sce, WebsocketService, $state, UserService) {
 
-            $scope.form = {value: false};
+            $scope.form = {invalidUser: false};
             $scope.checkUsernameAvailable = function() {
-                getMedia();
-                $scope.form = {value: true};
                 $log.debug($scope.form);
+                WebsocketService.emit('user:existing', {username: $scope.newUser.username}, function(data){
+                    $scope.form = {invalidUser: data};
+                    $log.debug($scope.form);
+                });
             };
-
-            function getMedia () {
-                getUserMedia({video: true, audio: false}, function(localStream) {
-                    $scope.$apply(function(){
-                        localStream = URL.createObjectURL(localStream);
-                        $scope.localStream = $scope.trustSrc(localStream);
-                    });
-
-                }, error);
-            }
-
-            function error (err) {
-                $log.error('webrtc error');
-                $log.error(err);
-            }
 
             $scope.trustSrc = function(src) {
                 return $sce.trustAsResourceUrl(src);
+            };
+
+            $scope.createUser = function () {
+                $log.info($scope.newUser);
+                WebsocketService.emit('user:create', $scope.newUser, function(data){
+                    $log.info(data);
+                    UserService.setSession(data);
+                    $state.transitionTo('main.landing');
+                });
             };
 
         });
