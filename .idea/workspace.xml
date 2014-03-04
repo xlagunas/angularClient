@@ -2,47 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/styles/fullcalendar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/WebsocketService.js" afterPath="$PROJECT_DIR$/app/scripts/services/WebsocketService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/UserService.js" afterPath="$PROJECT_DIR$/app/scripts/services/UserService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing.html" afterPath="$PROJECT_DIR$/app/views/landing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/login.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/newUser.html" afterPath="$PROJECT_DIR$/app/views/newUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/management.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/management.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/newUser.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/newUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/directives/photo.html" afterPath="$PROJECT_DIR$/app/views/directives/photo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/photo.js" afterPath="$PROJECT_DIR$/app/scripts/directives/photo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/searchList.html" afterPath="$PROJECT_DIR$/app/views/searchList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/searchList.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/searchList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/secondary.html" afterPath="$PROJECT_DIR$/app/views/secondary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularClient.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392656670987" ignored="false" />
+    <file path="/Dummy.txt" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393436040520" ignored="false" />
     <file path="/app.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392748868186" ignored="false" />
-    <file path="/login.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392378491640" ignored="false" />
+    <file path="/login.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393803177855" ignored="false" />
     <file path="/landing.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392116245457" ignored="false" />
-    <file path="/main.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392800204924" ignored="false" />
-    <file path="/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392813967866" ignored="false" />
+    <file path="/main.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393943749353" ignored="false" />
+    <file path="/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393952669246" ignored="false" />
     <file path="/landing.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392654274627" ignored="false" />
-    <file path="/main.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392826276181" ignored="false" />
-    <file path="$PROJECT_DIR$/../nodeServer/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392830228046" ignored="false" />
+    <file path="/main.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393953709014" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393931071631" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/tests/UserService_Test.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392132759542" ignored="false" />
     <file path="/UserService_Test.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392132758240" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/services/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392133040944" ignored="false" />
-    <file path="/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392382701988" ignored="false" />
+    <file path="/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393106430622" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/persistenceTest.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392131540265" ignored="false" />
     <file path="/persistenceTest.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392131540265" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/server/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392134036669" ignored="false" />
-    <file path="/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392829586220" ignored="false" />
+    <file path="/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393930957123" ignored="false" />
     <file path="/WebsocketService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392134259662" ignored="false" />
-    <file path="/main.scss" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392814155872" ignored="false" />
-    <file path="/login.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392294856398" ignored="false" />
+    <file path="/main.scss" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393936526124" ignored="false" />
+    <file path="/login.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393952690651" ignored="false" />
     <file path="/RoomService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392136509816" ignored="false" />
     <file path="/Underscore.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392136612608" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/socketio.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392377010641" ignored="false" />
@@ -50,15 +41,23 @@
     <file path="/photo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392642537347" ignored="false" />
     <file path="/photo.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392651436269" ignored="false" />
     <file path="/newUser.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392653900345" ignored="false" />
-    <file path="/newUser.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392719258065" ignored="false" />
+    <file path="/newUser.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393093430824" ignored="false" />
     <file path="/searchList.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392676754086" ignored="false" />
-    <file path="$PROJECT_DIR$/../nodeServer/.idea/workspace.xml" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392830644071" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/.idea/workspace.xml" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393954259028" ignored="false" />
     <file path="/searchList.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392664846611" ignored="false" />
     <file path="/secondary.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392666182187" ignored="false" />
     <file path="/management.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392822251760" ignored="false" />
     <file path="/management.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392829373023" ignored="false" />
     <file path="/calendar.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392813062556" ignored="false" />
     <file path="/calendar.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392813406278" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/api.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392981807272" ignored="false" />
+    <file path="/api.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392981806429" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/persistence_debug.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393861113489" ignored="false" />
+    <file path="/persistence_debug.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393861067149" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/ldap.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393846411404" ignored="false" />
+    <file path="/ldap.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393846291985" ignored="false" />
+    <file path="/fragment.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393434672539" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393952671749" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,83 +80,27 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="21" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0">
+            <state line="37" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#545#1386#0" expanded="false" />
+                <element signature="e#548#1389#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="management.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/management.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="55" selection-start="784" selection-end="784" vertical-scroll-proportion="0.3068592">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="management.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/management.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="89" selection-start="2451" selection-end="2451" vertical-scroll-proportion="-14.375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="51" selection-start="716" selection-end="742" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="131" selection-start="3233" selection-end="3233" vertical-scroll-proportion="-17.458334">
+            <state line="71" column="8" selection-start="4062" selection-end="4062" vertical-scroll-proportion="1.060606">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/login.html">
+      <file leaf-file-name="UserService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/UserService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendar.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/calendar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="49" selection-start="44" selection-end="49" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/calendar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="633" selection-end="640" vertical-scroll-proportion="0.0">
+            <state line="5" column="29" selection-start="91" selection-end="102" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,29 +125,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/searchList.html" />
-        <option value="$PROJECT_DIR$/app/views/secondary.html" />
-        <option value="$PROJECT_DIR$/app/scripts/directives/photo.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/searchList.js" />
+        <option value="$PROJECT_DIR$/app/views/calendar.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/calendar.js" />
+        <option value="$PROJECT_DIR$/app/views/management.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/newUser.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/management.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/UserService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/login.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/WebsocketService.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/app/views/calendar.html" />
-        <option value="$PROJECT_DIR$/app/styles/main.scss" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/calendar.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/management.js" />
+        <option value="$PROJECT_DIR$/app/views/login.html" />
         <option value="$PROJECT_DIR$/app/views/main.html" />
-        <option value="$PROJECT_DIR$/app/views/management.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1280" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
-    <option name="height" value="1002" />
+    <option name="height" value="706" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -248,7 +192,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -335,47 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -423,41 +326,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angularClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.jshintrc" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -568,7 +455,15 @@
       <created>1392630501639</created>
       <updated>1392630501639</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added calendar">
+      <created>1392831035117</created>
+      <updated>1392831035117</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added calendar">
+      <created>1392831142585</created>
+      <updated>1392831142585</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -592,24 +487,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="1002" extended-state="6" />
+    <frame x="-1280" y="22" width="1280" height="706" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30723608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6702254" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26985413" sideWeight="0.6702254" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2795786" sideWeight="0.6702254" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -657,7 +552,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added photo directive&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added calendar" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -674,125 +569,126 @@
     <MESSAGE value="updated and added socket.io" />
     <MESSAGE value="Added Websocket binding at login + contact request.&#10;Added contact filter binding" />
     <MESSAGE value="Added photo directive&#10;" />
+    <MESSAGE value="Added calendar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/UserService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="36" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.80981594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/newUser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="185" selection-start="2779" selection-end="2779" vertical-scroll-proportion="-22.333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/WebsocketService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="58" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="18" column="20" selection-start="613" selection-end="617" vertical-scroll-proportion="0.2967033">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/searchList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="33" selection-start="1844" selection-end="1844" vertical-scroll-proportion="-7.730769">
+        <state line="7" column="78" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="51" selection-start="716" selection-end="742" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="49" selection-start="44" selection-end="49" vertical-scroll-proportion="0.0">
+        <state line="10" column="53" selection-start="385" selection-end="391" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="32" selection-start="593" selection-end="593" vertical-scroll-proportion="-16.8">
+        <state line="125" column="15" selection-start="2090" selection-end="2090" vertical-scroll-proportion="-30.6">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login.html">
+    <entry file="file://$PROJECT_DIR$/.jshintrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="5" column="12" selection-start="77" selection-end="86" vertical-scroll-proportion="-3.125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/fullcalendar.css">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/UserService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="29" selection-start="91" selection-end="102" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="29" selection-start="879" selection-end="885" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
+        <state line="32" column="24" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
+    <entry file="file://$PROJECT_DIR$/app/views/directives/photo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="3561" selection-end="3758" vertical-scroll-proportion="0.7934509">
+        <state line="1" column="20" selection-start="21" selection-end="21" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/calendar.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/photo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="633" selection-end="640" vertical-scroll-proportion="0.0">
+        <state line="19" column="50" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="131" selection-start="3233" selection-end="3233" vertical-scroll-proportion="-17.458334">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/newUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="66" selection-start="2710" selection-end="2715" vertical-scroll-proportion="-24.416666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="50" selection-start="755" selection-end="755" vertical-scroll-proportion="0.43186182">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="21" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0">
+        <state line="37" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#545#1386#0" expanded="false" />
+            <element signature="e#548#1389#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/management.html">
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="89" selection-start="2451" selection-end="2451" vertical-scroll-proportion="-14.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/management.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="55" selection-start="784" selection-end="784" vertical-scroll-proportion="0.3068592">
+        <state line="71" column="8" selection-start="4062" selection-end="4062" vertical-scroll-proportion="1.060606">
           <folding />
         </state>
       </provider>

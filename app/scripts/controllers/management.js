@@ -15,10 +15,7 @@
             $scope.updateContact = function (_id, current, future) {
                 var msg = {_id: _id, current: current, future: future};
                 $log.info(msg);
-                WebsocketService.emit('contacts:update_list',msg, function(data){
-                    console.log(data);
-
-                });
+                WebsocketService.emit('contacts:update_list',msg);
             };
         });
 

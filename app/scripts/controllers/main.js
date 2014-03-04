@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, WebsocketService) {
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, WebsocketService, _) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
@@ -37,11 +37,7 @@
             };
 
             $scope.findContacts = function () {
-                WebsocketService.emit('contacts:find', $scope.userTextBox, function(data){
-                    $scope.foundUsers = data;
-                    console.log(data);
-                    $state.transitionTo('main.search');
-                });
+                WebsocketService.emit('contacts:find', $scope.userTextBox);
             };
 
             $scope.button = function() {
@@ -73,27 +69,54 @@
             $log.info(UserService.getSession());
             $log.info(UserService.getUsers());
 
-//                 COMENTAT PER A EVITAR QUE EL SERVIDOR PETI AL REINICAR VISTA
 
-            WebsocketService.emit('contacts:list','', function(contacts){
-                $log.debug('entro al contacts:list');
-                $log.debug(contacts);
+            WebsocketService.emit('contacts:list');
+
+            WebsocketService.on('contacts:update', function(contacts){
+                $log.info('contacts:update');
+                $log.info(contacts);
                 if (contacts){
+                    if ($scope.contactList.loaded === false){
+                        $scope.contactList.loaded = true;
+                    }
                     Object.keys(contacts).forEach(function(key){
-                        $log.info(key);
                         UserService.addUsers(key, contacts[key]);
                     });
-                    $scope.contactList.loaded = true;
                 }
             });
 
-            WebsocketService.on('contacts:update', function(contacts){
-                $log.info(contacts);
-                Object.keys(contacts).forEach(function(key){
-                    $log.info(key);
-                    UserService.addUsers(key, contacts[key]);
+            WebsocketService.on('contacts:find', function(contacts){
+                $scope.foundUsers = contacts;
+                $state.transitionTo('main.search');
+            });
+
+
+            WebsocketService.on('roster:update', function(contactInfo) {
+                changeUserStatusInfo(contactInfo, function(){
+                    WebsocketService.emit('roster:ack', {id: contactInfo.id});
                 });
             });
+
+            WebsocketService.on('roster:ack', function(contactInfo){
+                changeUserStatusInfo (contactInfo);
+            });
+
+            function changeUserStatusInfo (contactInfo, callback) {
+                $log.info(contactInfo);
+                var contact = _.find($scope.userContacts.accepted, function(user){
+                    return user.id === contactInfo.id;
+                });
+
+                if (contact){
+                    contact.status = contactInfo.status;
+                    if (callback){
+                        callback();
+                    }
+                }
+                else {
+                    $log.info('contact not found!');
+                }
+            }
 
         });
 

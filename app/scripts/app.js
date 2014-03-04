@@ -12,6 +12,7 @@
         .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider) {
 
             $urlRouterProvider.otherwise('/login');
+
             $stateProvider
                 .state('main', {
                     abstract: true,

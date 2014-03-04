@@ -6,7 +6,7 @@
         .service('UserService', function UserService($log, _) {
         
             var user = {};
-            var contacts = {accepted: [], requested: [], pending: []};
+            var contacts = {accepted: [], requested: [], pending: [], blocked: []};
         
             function addUser(user){
                 $log.debug('Adding User');
@@ -35,12 +35,11 @@
             }
         
             function getUsers(){
-                $log.debug('Retrieving users...');
                 return contacts;
             }
         
             function addUsers(contactType, users){
-                $log.info('adding users');
+                $log.info('adding '+contactType+ 'users');
                 angular.copy(users, contacts[contactType]);
             }
         

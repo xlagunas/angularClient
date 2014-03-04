@@ -8,13 +8,15 @@
             $scope.loginButton = function () {
                 $log.info('Logging in with user and pass');
                 $log.info($scope.user);
-                WebsocketService.emit('login', $scope.user, function(retVal){
-                    $log.info(retVal);
+                WebsocketService.emit('login', $scope.user);
+
+                WebsocketService.on('login', function(retVal){
+                    $log.info('Entra al onLogin');
                     if (retVal.status === 'error'){
                         $log.info(retVal);
                     }
                     else if (retVal.status === 'success'){
-                        UserService.setSession(retVal.data);
+                        UserService.setSession(retVal.user);
                         $state.go('main.landing');
                     }
                 });
