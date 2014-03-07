@@ -1,8 +1,7 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ui-sref="main.secondary">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
+    <li><a ui-sref="main.contact">Contact</a></li>
   </ul>
   <h3 class="text-muted">angularClient</h3>
 </div>
@@ -10,8 +9,8 @@
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
-    <!--<img src="images/yeoman.png" alt="I'm Yeoman"><br>-->
-    <img ng-src="{{userSession.thumbnail}}" alt="I'm Yeoman"><br>
+    <img ng-src="{{userSession.thumbnail?userSession.thumbnail:'images/yeoman.png'}}" alt="I'm Yeoman"><br>
+    <!--<img ng-src="({{userSession.thumbnail || images/yeoman.png)" alt="I'm Yeoman"><br>-->
     Always a pleasure scaffolding your apps.
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>

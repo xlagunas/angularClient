@@ -68,10 +68,13 @@
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
         <!--<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>-->
-        <!--<script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>-->
+        <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
         <script type="text/javascript" src="bower_components/fullcalendar/fullcalendar.js"></script>
         <script type="text/javascript" src="bower_components/fullcalendar/gcal.js"></script>
+        <script type=text/javascript>
+            jQuery.event.props.push('dataTransfer');
+        </script>
 
         <!-- endbuild -->
 
@@ -90,6 +93,10 @@
         <script src="scripts/directives/photo.js"></script>
         <script src="scripts/controllers/management.js"></script>
         <script src="scripts/controllers/calendar.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/services/EventService.js"></script>
+        <script src="scripts/controllers/newEvent.js"></script>
+        <script src="scripts/controllers/createEvent.js"></script>
         <!-- endbuild -->
 </body>
 </html>

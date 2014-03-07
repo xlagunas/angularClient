@@ -25,6 +25,16 @@
                     templateUrl: 'views/calendar.html',
                     controller: 'CalendarCtrl'
                 })
+                .state('main.newEvent', {
+                    url:'/newEvent',
+                    templateUrl: 'views/newEvent.html',
+                    controller:'NewEventCtrl'
+                })
+                .state('main.contact', {
+                    url:'/contact',
+                    templateUrl: 'views/contact.html',
+                    controller: 'ContactCtrl'
+                })
                 .state('main.management', {
                     url:'/management',
                     templateUrl: 'views/management.html',

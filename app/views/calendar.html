@@ -1,1 +1,22 @@
-<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+<div class="container-fluid">
+    <div class="row" style="margin-bottom: 1%">
+        <div class="col-md-4">
+            <button class="btn btn-default" ng-click="prevDay(calendar)"><i class="fa fa-angle-double-left"></i></button>
+            <button class="btn btn-default" ng-click="today(calendar)">Today</button>
+            <button class="btn btn-default" ng-click="nextDay(calendar)"><i class="fa fa-angle-double-right"></i></button>
+        </div>
+        <div class="col-md-4 text-center">
+            <button class="btn btn-default" ng-click="changeView('month',calendar)">Month</button>
+            <button class="btn btn-default" ng-click="changeView('basicWeek',calendar)">Week</button>
+            <button class="btn btn-default" ng-click="changeView('agendaDay',calendar)">Day</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-default pull-right" ng-click="createEvent()"><i class="fa fa-calendar"></i> Create</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ui-calendar="uiConfig.calendar" class="calendar" calendar="calendar" ng-model="eventSources"></div>
+        </div>
+    </div>
+</div>

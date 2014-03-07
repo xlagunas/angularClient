@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, WebsocketService, _) {
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService, _) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
@@ -42,22 +42,22 @@
 
             $scope.button = function() {
                 $modal.open({
-                        templateUrl: 'views/modals/landing.html',
-                        controller: ['$scope', function($scope) {
-                            $scope.dismiss = function() {
-                                $scope.$dismiss();
-                            };
+                    templateUrl: 'views/modals/landing.html',
+                    controller: ['$scope', function($scope) {
+                        $scope.dismiss = function() {
+                            $scope.$dismiss();
+                        };
 
-                            $scope.save = function() {
-                                $scope.$close(true);
-                            };
-                        }]
-                    })
-                    .result.then(function(result) {
-                        if (result) {
-                            $state.go('main.secondary');
-                        }
-                    });
+                        $scope.save = function() {
+                            $scope.$close(true);
+                        };
+                    }]
+                })
+                .result.then(function(result) {
+                    if (result) {
+                        $state.go('main.secondary');
+                    }
+                });
             };
 
             $log.info($scope.userSession);
@@ -71,6 +71,12 @@
 
 
             WebsocketService.emit('contacts:list');
+
+            WebsocketService.emit('calendar:getEvents');
+
+            WebsocketService.on('calendar:getEvents', function(events){
+                EventService.addEvents(events);
+            });
 
             WebsocketService.on('contacts:update', function(contacts){
                 $log.info('contacts:update');
