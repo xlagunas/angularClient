@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService, _) {
+        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
@@ -124,6 +124,53 @@
                 }
             }
 
-        });
+            WebsocketService.on('call:invite', function(data){
+                console.log(data);
+                $modal.open({
+                    templateUrl: 'views/modals/callReception.html',
+                    resolve: {
+                        user: function() {
+                            return  _.find(UserService.getUsers().accepted, function (user) {
+                                return (user._id === data.caller);
+                            });
+                        }
+                    },
+                    controller: function($scope, $log, user, $timeout) {
+                        $log.info(user);
+                        $scope.user = user;
 
+                        var promise = $timeout(function() {
+                            $log.info('execute timeout');
+                            $scope.$dismiss();
+                        }, 10000, false);
+
+                        $scope.confirm = function() {
+                            $timeout.cancel(promise);
+                            $log.info('confirmed');
+                            $scope.$close(true);
+                        };
+                        $scope.cancel = function() {
+                            //cancel -> rejection, not answering -> lost call
+                            $timeout.cancel(promise);
+                            $log.info('cancel');
+                            $scope.$close(false);
+                        };
+
+                    }
+                })
+                .result.then(function (result) {
+                    $log.info(result);
+                    $log.info('going to call: '+data._id);
+                    if (result && result === true){
+                        console.log('emitting call:accept');
+                        WebsocketService.emit('call:accept', {id: data._id, status: 'ANSWERED'});
+                    }
+                    else if (result && result === false){
+                        console.log('emitting call:reject');
+                        WebsocketService.emit('call:reject', {id: data._id, status: 'CANCELLED'});
+                    }
+                });
+
+            });
+        });
 }());

@@ -1,0 +1,15 @@
+<div class="pull-right list-group-item col-md-9" ng-click="displayContactInfo()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="media-object" ng-src="{{contact.thumbnail}}" width="64px">
+            </div>
+            <div class="col-md-6">
+                <span>{{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</span>
+            </div>
+            <div class="col-md-2">
+                <i class="fa fa-circle-o text-right" ng-class="(contact.status | lowercase) || 'offline'"></i>
+            </div>
+        </div>
+    </div>
+</div>

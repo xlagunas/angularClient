@@ -5,10 +5,20 @@
     angular.module('angularClientApp')
         .controller('CreateEventCtrl', function($scope, UserService, $log, _, event) {
 
-            if (event){
+            $scope.selectedContacts = [];
+            $scope.selfUser = UserService.getSession();
+            $scope.selectedContacts.push($scope.selfUser);
+
+            if (event && event.type === 'edit'){
                 $scope.newEvent = event;
                 $scope.isNew = false;
                 $scope.message = 'Event information';
+            }
+            else if (event && event.type === 'createWithContact') {
+                $scope.newEvent = {};
+                $scope.isNew = true;
+                $scope.selectedContacts.push(event.addedUsers[0]);
+                $scope.message = 'Create new event';
             }
             else{
                 $scope.newEvent = {};
@@ -18,9 +28,7 @@
 
             $log.info('$scope.newEvent: '+$scope.newEvent.title);
 
-            $scope.selectedContacts = [];
-            $scope.selfUser = UserService.getSession();
-            $scope.selectedContacts.push($scope.selfUser);
+
 
             $scope.addUser = function ($item){
                 $log.info($item);

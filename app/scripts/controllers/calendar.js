@@ -6,7 +6,7 @@
         .controller('CalendarCtrl', function ($scope, EventService, $log, $modal, WebsocketService) {
 
             $scope.alertOnEventClick = function(event){
-
+                event.type = 'edit';
                 $modal.open({
                     templateUrl: 'views/modals/addCalendarEvent.html',
                     controller: 'CreateEventCtrl',

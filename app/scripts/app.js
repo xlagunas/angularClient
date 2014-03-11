@@ -31,7 +31,7 @@
                     controller:'NewEventCtrl'
                 })
                 .state('main.contact', {
-                    url:'/contact',
+                    url:'/contact/:id',
                     templateUrl: 'views/contact.html',
                     controller: 'ContactCtrl'
                 })
