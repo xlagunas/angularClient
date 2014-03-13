@@ -135,7 +135,7 @@
                             });
                         }
                     },
-                    controller: function($scope, $log, user, $timeout) {
+                    controller: function($scope, $log, user, $timeout, $state) {
                         $log.info(user);
                         $scope.user = user;
 
@@ -161,11 +161,12 @@
                 .result.then(function (result) {
                     $log.info(result);
                     $log.info('going to call: '+data._id);
-                    if (result && result === true){
+                    if (result !== null && result === true){
                         console.log('emitting call:accept');
                         WebsocketService.emit('call:accept', {id: data._id, status: 'ANSWERED'});
+                        $state.go('main.conference',{id: data._id});
                     }
-                    else if (result && result === false){
+                    else if (result !== null && result === false){
                         console.log('emitting call:reject');
                         WebsocketService.emit('call:reject', {id: data._id, status: 'CANCELLED'});
                     }

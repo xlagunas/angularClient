@@ -5,7 +5,7 @@
     angular.module('angularClientApp')
         .service('UserService', function UserService($log, _) {
         
-            var user = {};
+            var user = {info:{}, conferencing: false};
             var contacts = {accepted: [], requested: [], pending: [], blocked: []};
         
             function addUser(user){
@@ -36,6 +36,15 @@
         
             function getUsers(){
                 return contacts;
+            }
+
+            function isConferencing() {
+                return user.conferencing;
+            }
+
+            function setConferencing(status) {
+                $log.info('setting conference status to '+status);
+                user.conferencing = status;
             }
         
             function addUsers(contactType, users){
@@ -72,7 +81,9 @@
                 setSession: setSession,
                 getSession: getSession,
                 setLocalStream: setLocalStream,
-                getLocalStream: getLocalStream
+                getLocalStream: getLocalStream,
+                isConferencing: isConferencing,
+                setConferencing: setConferencing
             };
         });
 

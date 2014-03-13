@@ -1,0 +1,10 @@
+<local-video width="320px" height="240px" on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
+
+<remote-video ng-repeat="speaker in speakers"width="320px" height="240px" user="speaker" conference="{{conference.id}}"/>
+
+
+<ul>
+    <li ng-repeat="speaker in speakers">
+        {{speaker.username}} {{speaker.createOffer}}
+    </li>
+</ul>

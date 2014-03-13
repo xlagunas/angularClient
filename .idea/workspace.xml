@@ -2,39 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/modals/callConfirmation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/modals/callReception.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/modals/callWaitingResponse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/directives/contact-item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/directives/local-video.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/directives/remote-video.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/UserService.js" afterPath="$PROJECT_DIR$/app/scripts/services/UserService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/calendar.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contact.html" afterPath="$PROJECT_DIR$/app/views/contact.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/contact.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/createEvent.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/createEvent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularClient.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394201276479" ignored="false" />
-    <file path="/app.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394121694808" ignored="false" />
+    <file path="/Dummy.txt" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394642602775" ignored="false" />
+    <file path="/app.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394537948357" ignored="false" />
     <file path="/login.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393803177855" ignored="false" />
     <file path="/landing.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392116245457" ignored="false" />
-    <file path="/main.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394495429082" ignored="false" />
-    <file path="/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394527966446" ignored="false" />
+    <file path="/main.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394620079430" ignored="false" />
+    <file path="/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394699057001" ignored="false" />
     <file path="/landing.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394355300634" ignored="false" />
     <file path="/main.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394321547026" ignored="false" />
-    <file path="$PROJECT_DIR$/../nodeServer/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394495713064" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394711663278" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/tests/UserService_Test.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392132759542" ignored="false" />
     <file path="/UserService_Test.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392132758240" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/services/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392133040944" ignored="false" />
-    <file path="/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393106430622" ignored="false" />
+    <file path="/UserService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394538332607" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/persistenceTest.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392131540265" ignored="false" />
     <file path="/persistenceTest.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392131540265" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/server/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392134036669" ignored="false" />
-    <file path="/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394495709843" ignored="false" />
+    <file path="/server_debug_bo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394711662742" ignored="false" />
     <file path="/WebsocketService.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392134259662" ignored="false" />
     <file path="/main.scss" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393936526124" ignored="false" />
     <file path="/login.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393952690651" ignored="false" />
@@ -42,12 +37,12 @@
     <file path="/Underscore.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392136612608" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/socketio.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392377010641" ignored="false" />
     <file path="/socketio.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392369683368" ignored="false" />
-    <file path="/photo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392642537347" ignored="false" />
+    <file path="/photo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394622947309" ignored="false" />
     <file path="/photo.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392651436269" ignored="false" />
     <file path="/newUser.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392653900345" ignored="false" />
     <file path="/newUser.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393093430824" ignored="false" />
     <file path="/searchList.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392676754086" ignored="false" />
-    <file path="$PROJECT_DIR$/../nodeServer/.idea/workspace.xml" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394527975142" ignored="false" />
+    <file path="$PROJECT_DIR$/../nodeServer/.idea/workspace.xml" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394528713934" ignored="false" />
     <file path="/searchList.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392664846611" ignored="false" />
     <file path="/secondary.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394100930322" ignored="false" />
     <file path="/management.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1392822251760" ignored="false" />
@@ -62,7 +57,7 @@
     <file path="/ldap.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393846291985" ignored="false" />
     <file path="/fragment.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393434672539" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1393952671749" ignored="false" />
-    <file path="/contact.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394493374027" ignored="false" />
+    <file path="/contact.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394620293377" ignored="false" />
     <file path="/contact.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394358354769" ignored="false" />
     <file path="$PROJECT_DIR$/../nodeServer/CalEvent.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394403856821" ignored="false" />
     <file path="/CalEvent.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394199992539" ignored="false" />
@@ -80,6 +75,14 @@
     <file path="/Call.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394490378693" ignored="false" />
     <file path="/callReception.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394468718441" ignored="false" />
     <file path="/callWaitingResponse.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394476943632" ignored="false" />
+    <file path="/conference.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394713414579" ignored="false" />
+    <file path="/conference.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394709826740" ignored="false" />
+    <file path="/localVideo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394706595034" ignored="false" />
+    <file path="/localVideo.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394624019299" ignored="false" />
+    <file path="/remoteVideo.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394714671090" ignored="false" />
+    <file path="$USER_HOME$/Desktop/v2bStableVersion/video2browser/app/index.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394699034056" ignored="false" />
+    <file path="/adapter.js" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394707339933" ignored="false" />
+    <file path="/remote-video.html" changelist="6dc5df9b-74e5-42f7-afb1-65b91ffed19e" time="1394712802958" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,63 +105,70 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="12" selection-start="6352" selection-end="6352" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contact.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="110" selection-start="2442" selection-end="2442" vertical-scroll-proportion="0.0">
+            <state line="0" column="8" selection-start="2" selection-end="8" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="callWaitingResponse.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/modals/callWaitingResponse.html">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="34" selection-start="300" selection-end="300" vertical-scroll-proportion="-5.0">
+            <state line="23" column="41" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/contact.html">
+      <file leaf-file-name="localVideo.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/directives/localVideo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="100" selection-start="1700" selection-end="1716" vertical-scroll-proportion="-17.416666">
+            <state line="31" column="50" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-17.884615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <file leaf-file-name="remoteVideo.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/directives/remoteVideo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="33" selection-start="1830" selection-end="1844" vertical-scroll-proportion="0.0">
+            <state line="106" column="56" selection-start="5504" selection-end="5504" vertical-scroll-proportion="3.0813954">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebsocketService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/WebsocketService.js">
+      <file leaf-file-name="remote-video.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/directives/remote-video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="58" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
+            <state line="1" column="16" selection-start="148" selection-end="148" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="conference.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/conference.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="56" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conference.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/conference.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="121" selection-end="121" vertical-scroll-proportion="-0.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="72" selection-start="2070" selection-end="2070" vertical-scroll-proportion="1.218085">
+            <state line="101" column="46" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
@@ -183,28 +193,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/contact-item.html" />
-        <option value="$PROJECT_DIR$/app/scripts/directives/contact-item.js" />
-        <option value="$PROJECT_DIR$/app/views/directives/contact-item.html" />
-        <option value="$PROJECT_DIR$/app/views/main.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/createEvent.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/calendar.js" />
-        <option value="$PROJECT_DIR$/app/views/modals/landing.html" />
-        <option value="$PROJECT_DIR$/app/views/modals/callConfirmation.html" />
-        <option value="$PROJECT_DIR$/app/views/contact.html" />
-        <option value="$PROJECT_DIR$/app/views/modals/callReception.html" />
-        <option value="$PROJECT_DIR$/app/views/modals/callWaitingResponse.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/contact.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/WebsocketService.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/contact.js" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/photo.js" />
+        <option value="$PROJECT_DIR$/app/views/directives/localVideo.html" />
+        <option value="$PROJECT_DIR$/app/views/directives/local-video.html" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/local-video.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/localVideo.js" />
+        <option value="$PROJECT_DIR$/app/scripts/adapter.js" />
+        <option value="$PROJECT_DIR$/app/views/conference.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/conference.js" />
+        <option value="$PROJECT_DIR$/app/views/directives/remote-video.html" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/remoteVideo.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="311" />
-    <option name="y" value="86" />
+    <option name="x" value="-1280" />
+    <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="778" />
   </component>
@@ -250,6 +260,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -466,7 +477,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -504,6 +514,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/directives" />
       <recent name="$PROJECT_DIR$/app/views/modals" />
       <recent name="$PROJECT_DIR$/app/views" />
       <recent name="$PROJECT_DIR$/app/styles" />
@@ -614,7 +625,15 @@
       <created>1394201285919</created>
       <updated>1394201285919</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added Call signaling logic">
+      <created>1394528615504</created>
+      <updated>1394528615504</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added Call signaling logic">
+      <created>1394528730761</created>
+      <updated>1394528730761</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -638,24 +657,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="311" y="86" width="1280" height="778" extended-state="6" />
+    <frame x="-1280" y="22" width="1280" height="778" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30723608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6702254" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2795786" sideWeight="0.67021275" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24635333" sideWeight="0.92097265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635333" sideWeight="0.3237082" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.079027355" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -703,7 +722,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full working Calendar Event Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Call signaling logic" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -722,123 +741,122 @@
     <MESSAGE value="Added photo directive&#10;" />
     <MESSAGE value="Added calendar" />
     <MESSAGE value="Full working Calendar Event Manager" />
+    <MESSAGE value="Added Call signaling logic" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/directives/contact-item.html">
+    <entry file="file://$PROJECT_DIR$/app/views/directives/photo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="43" selection-start="629" selection-end="629" vertical-scroll-proportion="0.26548672">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/photo.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="58" selection-start="371" selection-end="402" vertical-scroll-proportion="0.2392638">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/addCalendarEvent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="51" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.81876606">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-16.083334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/landing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="20" selection-start="35" selection-end="47" vertical-scroll-proportion="0.018963337">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/contact-item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="114" selection-start="762" selection-end="762" vertical-scroll-proportion="0.4785276">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/callConfirmation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="93" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/callReception.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="44" selection-start="142" selection-end="142" vertical-scroll-proportion="0.10291595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/callWaitingResponse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="300" selection-end="300" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/createEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="37" selection-start="620" selection-end="620" vertical-scroll-proportion="0.4047619">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="100" selection-start="1700" selection-end="1716" vertical-scroll-proportion="-17.416666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contact.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="110" selection-start="2442" selection-end="2442" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="12" selection-start="6352" selection-end="6352" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="33" selection-start="1830" selection-end="1844" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/WebsocketService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="58" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
+        <state line="7" column="58" selection-start="227" selection-end="227" vertical-scroll-proportion="0.16483517">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/newUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="60" selection-start="2681" selection-end="2709" vertical-scroll-proportion="-17.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/directives/local-video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="96" selection-start="0" selection-end="116" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/adapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="8" selection-start="2" selection-end="8" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="41" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/photo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="51" selection-start="1963" selection-end="1991" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/localVideo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="50" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-17.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/conference.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="121" selection-end="121" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/UserService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5279279">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/conference.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="56" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="72" selection-start="2070" selection-end="2070" vertical-scroll-proportion="1.218085">
+        <state line="101" column="46" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-15.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/directives/remote-video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="16" selection-start="148" selection-end="148" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/remoteVideo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="56" selection-start="5504" selection-end="5504" vertical-scroll-proportion="3.0813954">
           <folding />
         </state>
       </provider>

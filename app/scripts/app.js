@@ -20,6 +20,11 @@
                     templateUrl: 'views/main.html',
                     controller: 'MainCtrl'
                 })
+                .state('main.conference', {
+                    url: '/conference/:id',
+                    templateUrl: 'views/conference.html',
+                    controller: 'ConferenceCtrl'
+                })
                 .state('main.calendar', {
                     url:'/calendar',
                     templateUrl: 'views/calendar.html',

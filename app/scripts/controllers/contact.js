@@ -49,7 +49,7 @@
             $scope.waitingResponseDialog = function () {
                 $modal.open({
                     templateUrl: 'views/modals/callWaitingResponse.html',
-                    controller: function($scope, $timeout, WebsocketService) {
+                    controller: function($scope, $timeout, WebsocketService, $state) {
                         var promise = $timeout(function(){ $log.info('execute timeout');$scope.$dismiss();}, 25000, false);
 
                         $scope.cancel = function() {
@@ -58,21 +58,22 @@
                         };
 
                         WebsocketService.on('call:accept', function(msg){
-                            $log.info('call:accept via WS');
                             $log.info(msg);
+                            $timeout.cancel(promise);
                             $scope.$close(msg);
-
+                            $state.go('main.conference', {id: msg._id});
                         });
 
                         WebsocketService.on('call:reject', function(msg){
                             $log.info('call:reject via WS');
                             $log.info(msg);
+                            $timeout.cancel(promise);
                             $scope.$close(msg);
                         });
                     }
                 })
                 .result.then(function(result){
-                    if (result){
+                    if (result !== null){
                         $log.info('retrieving result from WS');
                         $log.info(result);
                     }
