@@ -25,7 +25,7 @@
                     };
 
                     function getMedia () {
-                        getUserMedia({video: true, audio: false}, function(localStream) {
+                        getUserMedia({video: true, audio: true}, function(localStream) {
                                 $scope.$apply(function(){
                                     var fullStream = {};
                                     fullStream = localStream;
