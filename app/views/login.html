@@ -1,5 +1,11 @@
 <div class="container">
-    <form class="form-horizontal" role="form">
+    <div ng-show="$storage.user" class="col-md-12 text-center">
+        <div class="row">
+            <i class="fa fa-refresh fa-spin fa-5x"></i>
+        </div>
+        Authenticating, please Wait....
+    </div>
+    <form ng-hide="$storage.user" class="form-horizontal" role="form">
         <div class="form-group">
             <label for="username" class="col-sm-2 control-label"></label>
             <div class="col-sm-6">

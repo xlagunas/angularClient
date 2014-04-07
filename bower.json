@@ -13,7 +13,8 @@
     "angular-bootstrap": "~0.10.0",
     "font-awesome": "~4.0.3",
     "underscore": "~1.6.0",
-    "angular-ui-calendar": "latest" 
+    "angular-ui-calendar": "latest", 
+    "d3":"latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

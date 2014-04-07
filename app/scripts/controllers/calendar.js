@@ -3,7 +3,8 @@
 
 
     angular.module('angularClientApp')
-        .controller('CalendarCtrl', function ($scope, EventService, $log, $modal, WebsocketService) {
+        .controller('CalendarCtrl', ['$scope', 'EventService', '$log', '$modal', 'WebsocketService',
+        function ($scope, EventService, $log, $modal, WebsocketService) {
 
             $scope.alertOnEventClick = function(event){
                 event.type = 'edit';
@@ -111,5 +112,5 @@
             };
 
             $scope.eventSources = [$scope.events];
-        });
+        }]);
 }());

@@ -3,7 +3,7 @@
 
 
     angular.module('angularClientApp')
-        .controller('CreateEventCtrl', function($scope, UserService, $log, _, event) {
+        .controller('CreateEventCtrl',['$scope', 'UserService', '$log', '_', 'event', function($scope, UserService, $log, _, event) {
 
             $scope.selectedContacts = [];
             $scope.selfUser = UserService.getSession();
@@ -98,5 +98,5 @@
                 $scope.$close($scope.newEvent);
 
             };
-        });
+        }]);
 }());

@@ -3,10 +3,11 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .service('UserService', function UserService($log, _) {
+        .service('UserService', ['$log', '_', function UserService($log, _) {
         
             var user = {info:{}, conferencing: false};
             var contacts = {accepted: [], requested: [], pending: [], blocked: []};
+            var constraints = { video: true, audio: true};
         
             function addUser(user){
                 $log.debug('Adding User');
@@ -39,11 +40,12 @@
             }
 
             function isConferencing() {
+                $log.info('getting conference status');
                 return user.conferencing;
             }
 
             function setConferencing(status) {
-                $log.info('setting conference status to '+status);
+                $log.log('setting conference status to '+status);
                 user.conferencing = status;
             }
         
@@ -72,6 +74,14 @@
                 $log.debug(user.stream);
                 return user.stream;
             }
+
+            function setConstraints (newConstraints) {
+                constraints = newConstraints;
+            }
+
+            function getConstraints () {
+                return constraints;
+            }
         
             return {
                 addUser : addUser,
@@ -83,8 +93,10 @@
                 setLocalStream: setLocalStream,
                 getLocalStream: getLocalStream,
                 isConferencing: isConferencing,
-                setConferencing: setConferencing
+                setConferencing: setConferencing,
+                getConstraints: getConstraints,
+                setConstraints: setConstraints
             };
-        });
+        }]);
 
 }());

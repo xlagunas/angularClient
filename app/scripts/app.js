@@ -7,9 +7,11 @@
         'ngSanitize',
         'ui.router',
         'ui.bootstrap',
-        'ui.calendar'
+        'ui.calendar',
+        'ngStorage'
     ])
-        .config(function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider', '$sceProvider', '$provide',
+        function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider, $provide) {
 
             $urlRouterProvider.otherwise('/login');
 
@@ -74,5 +76,18 @@
             $sceProvider.enabled(true);
 
             $sceDelegateProvider.resourceUrlWhitelist(['self', /^https?:\/\/(cdn\.)?vb2.i2cat.net/]);
-        });
+
+            $provide.decorator('$log', ['$delegate', '$sniffer', function($delegate, $sniffer) {
+                var _log = $delegate.log; //Saving the original behavior
+
+//                $delegate.log = function(message) { };
+                $delegate.info = function(message) { };
+                $delegate.debug = function(message) { };
+
+
+                return $delegate;
+            }]);
+        }]);
+
+
 }());

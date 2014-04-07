@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ManagementCtrl', function ($scope, UserService, $log, WebsocketService) {
+        .controller('ManagementCtrl', ['$scope', 'UserService', '$log', 'WebsocketService',
+        function ($scope, UserService, $log, WebsocketService) {
             $scope.mngCategories = [
                 {category: 'ALL', name: 'all'},
                 {category: 'ACCEPTED', name: 'accepted'},
@@ -17,6 +18,6 @@
                 $log.info(msg);
                 WebsocketService.emit('contacts:update_list',msg);
             };
-        });
+        }]);
 
 }());

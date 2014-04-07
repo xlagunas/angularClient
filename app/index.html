@@ -42,7 +42,10 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+
     <script src="scripts/adapter.js"></script>
+    <!--<script src="http://192.168.10.195:3000/socket.io/socket.io.js"></script>-->
     <script src="http://192.168.10.195:3000/socket.io/socket.io.js"></script>
 
     <!-- build:js scripts/plugins.js -->
@@ -72,6 +75,7 @@
         <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
         <script type="text/javascript" src="bower_components/fullcalendar/fullcalendar.js"></script>
         <script type="text/javascript" src="bower_components/fullcalendar/gcal.js"></script>
+        <script type="text/javascript" src="bower_components/ngstorage/ngStorage.js"></script>
         <script type=text/javascript>
             jQuery.event.props.push('dataTransfer');
         </script>
@@ -95,12 +99,15 @@
         <script src="scripts/controllers/calendar.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/services/EventService.js"></script>
-        <script src="scripts/controllers/newEvent.js"></script>
         <script src="scripts/controllers/createEvent.js"></script>
         <script src="scripts/directives/contact-item.js"></script>
         <script src="scripts/controllers/conference.js"></script>
         <script src="scripts/directives/localVideo.js"></script>
         <script src="scripts/directives/remoteVideo.js"></script>
+        <script src="scripts/directives/drag.js"></script>
+        <script src="scripts/directives/drop.js"></script>
+        <script src="scripts/directives/fileRead.js"></script>
+        <script src="scripts/directives/donut.js"></script>
         <!-- endbuild -->
 </body>
 </html>

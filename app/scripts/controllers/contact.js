@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ContactCtrl', function ($scope, $stateParams, $log,  $modal, UserService, _, WebsocketService) {
+        .controller('ContactCtrl', ['$scope', '$stateParams', '$log', '$modal', 'UserService','_','WebsocketService',
+        function ($scope, $stateParams, $log,  $modal, UserService, _, WebsocketService) {
             $log.info('id:' +$stateParams.id);
             if ($stateParams.id === UserService.getSession()._id){
                 $scope.user = UserService.getSession();
@@ -60,7 +61,9 @@
                         WebsocketService.on('call:accept', function(msg){
                             $log.info(msg);
                             $timeout.cancel(promise);
-                            $scope.$close(msg);
+                            if (typeof $scope.$close === 'function'){
+                                $scope.$close(msg);
+                            }
                             $state.go('main.conference', {id: msg._id});
                         });
 
@@ -101,13 +104,12 @@
                 })
                 .result.then(function(result){
                     if (result){
-                        WebsocketService.emit('call:invite',{id: $scope.user._id, msg: {type: 'CREATE'}});
+                        WebsocketService.emit('call:invite',{id: $scope.user._id, call: {type: 'CREATE'}});
                         $scope.waitingResponseDialog();
-
                     }
                 });
             };
 
-        });
+        }]);
 
 }());

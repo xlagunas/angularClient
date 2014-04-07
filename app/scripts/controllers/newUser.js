@@ -2,9 +2,11 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('NewUserCtrl', function ($scope, $log, $sce, WebsocketService, $state, UserService) {
+        .controller('NewUserCtrl', ['$scope', '$log', '$sce', 'WebsocketService', '$state', 'UserService',
+        function ($scope, $log, $sce, WebsocketService, $state, UserService) {
 
             $scope.form = {invalidUser: false};
+
             $scope.checkUsernameAvailable = function() {
                 WebsocketService.emit('user:existing', {username: $scope.newUser.username});
             };
@@ -26,9 +28,10 @@
             WebsocketService.on('user:create', function(data){
                 $log.info(data);
                 UserService.setSession(data);
-                $state.transitionTo('main.landing');
+//                $state.transitionTo('main.landing');
+                $scope.takeImage = true;
             });
 
-        });
+        }]);
 
 }());

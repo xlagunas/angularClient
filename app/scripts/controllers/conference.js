@@ -2,17 +2,50 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ConferenceCtrl', function ($scope, $log, $stateParams, WebsocketService, UserService) {
+        .controller('ConferenceCtrl', ['$scope', '$log', '$stateParams', 'WebsocketService', 'UserService', '$modal','$state',
+        function ($scope, $log, $stateParams, WebsocketService, UserService, $modal, $state) {
             $scope.speakers = [];
             $scope.localSpeaker = UserService.getSession();
             $scope.conference = {id: $stateParams.id};
-            $log.info($scope.conference);
+//            $scope.toggleSideBar('contacts');
+
+
+            (function(){
+                $modal.open({
+                    templateUrl: 'views/modals/videoSource.html',
+                    controller: function($scope) {
+                        $scope.setSource = function(source){
+                            $scope.$close(source);
+                        };
+                    }
+                }).result.then(function(success){
+                    if (success){
+                        if (success === 'desktop'){
+                            $log.info('desktop constraints');
+                            $scope.constraints = {
+                                video: { mandatory: { chromeMediaSource: 'screen'}},
+                                audio: true
+                            };
+                        }
+                        else if (success === 'camera') {
+                            $log.info('video constraints');
+                            $scope.constraints = {
+                                video: true,
+                                audio: true
+                            };
+                        }
+                        $log.log($scope.constraints);
+                    }
+                });
+            })();
 
             $scope.onSuccess = function(localStream) {
                 $log.info('Entro al onSuccess!!!!');
                 UserService.setLocalStream(localStream);
-
-                WebsocketService.emit('call:register', {id: $stateParams.id});
+                if (!UserService.isConferencing()){
+                    WebsocketService.emit('call:register', {id: $stateParams.id});
+                    UserService.setConferencing({id: $stateParams.id});
+                }
 
             };
 
@@ -31,6 +64,10 @@
 
             });
 
+            WebsocketService.on('call:removeUser', function (user){
+                $scope.$broadcast('exit', user);
+            });
+
             WebsocketService.on('call:userDetails', function (user){
                 $log.info('call to userDetails');
                 $log.info(user);
@@ -38,6 +75,24 @@
                 $scope.speakers.push(user);
             });
 
-        });
+            $scope.closeStream = function (username) {
+                console.log('Calling closeStream in conference');
+                for (var i=$scope.speakers.length-1;i>=0;i--){
+                    if ($scope.speakers[i].username === username){
+                        $log.log('speaker found');
+                        $scope.speakers.splice(i,1);
+                    }
+                }
+            };
+
+            $scope.exitConference = function() {
+                $log.log('exitConference');
+                WebsocketService.emit('call:unregister', {id: $stateParams.id});
+                $scope.$broadcast('finish', {});
+//                $state.go('main.landing');
+                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
+            };
+
+        }]);
 
 }());

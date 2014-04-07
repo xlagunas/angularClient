@@ -5,37 +5,60 @@
         .directive('localVideo', function () {
             return {
                 scope:  {
-                    'height'    : '@',
-                    'width'     : '@',
-                    'user'      : '=',
-                    'onSuccess' : '=',
-                    'onError'   : '&'
+                    'height'        : '@',
+                    'width'         : '@',
+                    'user'          : '=',
+                    'onSuccess'     : '=',
+                    'onError'       : '&',
+                    'constraints'   : '='
                 },
                 templateUrl : 'views/directives/local-video.html',
                 restrict: 'E',
                 link: function postLink(scope, element) {
-                    scope.startMedia();
+//                    scope.startMedia();
                     scope.videoElement = element.find('video')[0];
 
                 },
-                controller: function ($scope, $sce, $log) {
+                controller: ['$scope', '$sce', '$log', 'UserService', function ($scope, $sce, $log, UserService) {
+                    var fullStream = {};
+
+                    $scope.$watch('constraints', function(){
+                        $log.log('from directive constraints');
+                        $log.log($scope.constraints);
+                        if ($scope.constraints){
+                            $scope.startMedia();
+                        }
+                    });
+
                     $scope.startMedia = function () {
                         $log.info('starting Media');
-                        getMedia();
+                        if (!UserService.isConferencing()){
+                            getMedia();
+                        } else{
+                            $log.debug('no entra al getMedia()');
+                            $scope.user.stream = $scope.trustSrc(UserService.getLocalStream());
+                            $scope.resume();
+                        }
                     };
 
                     function getMedia () {
-                        getUserMedia({video: true, audio: true}, function(localStream) {
+                        getUserMedia($scope.constraints, function(localStream) {
                                 $scope.$apply(function(){
-                                    var fullStream = {};
+                                    localStream.onended = function () {
+                                        UserService.setConferencing();
+                                    }
+
                                     fullStream = localStream;
-                                    localStream = URL.createObjectURL(localStream);
-                                    $scope.user.stream = {};
-                                    $scope.user.stream = $scope.trustSrc(localStream);
+                                    if (!$scope.constraints.video.mandatory){
+                                        localStream = URL.createObjectURL(localStream);
+                                        $scope.user.stream = {};
+                                        $scope.user.stream = $scope.trustSrc(localStream);
+                                    }
 
                                     if ($scope.onSuccess){
-//                                        $scope.onSuccess({localStream: fullStream});
                                         $scope.onSuccess(fullStream);
+                                        $scope.resume();
+
                                     }
                                 });
                             }, function (error) {
@@ -54,9 +77,22 @@
                     };
 
                     $scope.resume = function () {
+                        $log.info('resume localVideo');
                         $scope.videoElement.play();
                     };
-                }
+
+                    $scope.pause = function () {
+                        $scope.videoElement.pause();
+                    };
+
+                    $scope.$on('finish', function (){
+                        $log.info('Closing localStream');
+                        URL.revokeObjectURL($scope.user.stream);
+                        fullStream.stop();
+                        $scope.videoElement.src = null;
+                        UserService.setConferencing(null);
+                    });
+                }]
             };
         });
 

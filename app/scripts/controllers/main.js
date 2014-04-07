@@ -3,13 +3,16 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _) {
+        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_',
+        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
             $scope.visibleColumns = {actions: false, contacts: false};
             $scope.mainContentSizeClass = {value: 'col-lg-8 col-md-8'};
             $scope.userTextBox = {};
+
+            $scope.conference = UserService.isConferencing();
 
             $scope.toggleSideBar = function (sideBar) {
                 $scope.visibleColumns[sideBar] = ! $scope.visibleColumns[sideBar];
@@ -60,8 +63,6 @@
                 });
             };
 
-            $log.info($scope.userSession);
-
             $scope.toggleContacts = function () {
                 $log.debug($scope.contactList);
                 $scope.contactList.loaded = true;
@@ -76,6 +77,7 @@
 
             WebsocketService.on('calendar:getEvents', function(events){
                 EventService.addEvents(events);
+                $scope.displayEvents = EventService.getConcreteEvents(0);
             });
 
             WebsocketService.on('contacts:update', function(contacts){
@@ -135,7 +137,7 @@
                             });
                         }
                     },
-                    controller: function($scope, $log, user, $timeout, $state) {
+                    controller: function($scope, $log, user, $timeout) {
                         $log.info(user);
                         $scope.user = user;
 
@@ -173,5 +175,5 @@
                 });
 
             });
-        });
+        }]);
 }());

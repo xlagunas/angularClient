@@ -3,8 +3,13 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('SecondaryCtrl', function ($scope, $log, WebsocketService,UserService) {
+        .controller('SecondaryCtrl', ['$scope', '$log','WebsocketService','UserService',
+        function ($scope, $log, WebsocketService,UserService) {
             $log.info('Aquesta és el segon fill');
+            $scope.size = {width: '640', height: '480'};
+            $scope.user = UserService.getSession();
+            $scope.msg = {user: $scope.user, text: 'Hola que tal!'};
+
 
             $scope.createEvent = function (){
                 $log.info('entra al createDate');
@@ -15,6 +20,6 @@
                     title: 'Primer Test',
                     confirmed: false
                 });
-            }
-        });
+            };
+        }]);
 }());

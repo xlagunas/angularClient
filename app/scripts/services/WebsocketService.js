@@ -3,9 +3,10 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .service('WebsocketService', function WebsocketService($log, $rootScope) {
+        .service('WebsocketService', ['$log', '$rootScope', function WebsocketService($log, $rootScope) {
 
             var socket = io.connect('http://192.168.10.195:3000');
+//            var socket = io.connect('http://192.168.10.195:3000');
 
             return {
                 on: function (eventName, callback) {
@@ -27,6 +28,6 @@
                     });
                 }
             };
-        });
+        }]);
 
 }());

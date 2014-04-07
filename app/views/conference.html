@@ -1,10 +1,6 @@
-<local-video width="320px" height="240px" on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
+<div drop class="text-center">
+    <button class="btn btn-default" ng-click="exitConference()"> Exit Conference</button>
+    <remote-video ng-repeat="speaker in speakers"width="640px" height="480px" user="speaker" conference="{{conference.id}}" on-close="closeStream"></remote-video>
+    <local-video width="320px" height="240px" constraints="constraints" on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
+</div>
 
-<remote-video ng-repeat="speaker in speakers"width="320px" height="240px" user="speaker" conference="{{conference.id}}"/>
-
-
-<ul>
-    <li ng-repeat="speaker in speakers">
-        {{speaker.username}} {{speaker.createOffer}}
-    </li>
-</ul>

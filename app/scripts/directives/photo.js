@@ -11,13 +11,20 @@
             },
             templateUrl : 'views/directives/photo.html',
             restrict: 'E',
-            link: function postLink(scope, element, attrs) {
-                scope.startMedia();
+            link: function postLink(scope, element) {
+//                scope.startMedia();
                 scope.videoElement = element.find('video')[0];
                 scope.canvas = element.find('canvas')[0];
+                var img = new Image();
+                img.onload = function(){
+                    var context = scope.canvas.getContext('2d');
+                    context.drawImage(img,0,0);
+                    scope.image = scope.canvas.toDataURL('image/png');
+                };
+                img.src = '/images/yeoman.png';
 
             },
-            controller: function ($scope, $sce, $log) {
+            controller: ['$scope', '$sce', '$log', function ($scope, $sce, $log) {
                 $scope.reload = false;
 
                 $scope.startMedia = function () {
@@ -43,20 +50,40 @@
                 };
 
                 $scope.pause = function () {
-                    $scope.videoElement.pause();
-                    $scope.reload = !$scope.reload;
+                    if (!$scope.stream) {
+                        $log.info('creating stream');
+                        $scope.startMedia();
+                    }
+                    else{
+                        $scope.videoElement.pause();
+                        $scope.reload = !$scope.reload;
 
-                    var context = $scope.canvas.getContext('2d');
-                    context.drawImage($scope.videoElement, 0, 0, $scope.videoElement.width, $scope.videoElement.height);
-                    $scope.image = $scope.canvas.toDataURL('image/png');
+                        var context = $scope.canvas.getContext('2d');
+                        context.drawImage($scope.videoElement, 0, 0, $scope.videoElement.width, $scope.videoElement.height);
+                        $scope.image = $scope.canvas.toDataURL('image/png');
+                    }
 
                 };
 
                 $scope.resume = function () {
-                    $scope.videoElement.play();
-                    $scope.reload = !$scope.reload;
+                        $scope.videoElement.play();
+                        $scope.reload = !$scope.reload;
                 };
-            }
+
+                $scope.displayReadFile = function () {
+                    $scope.reload = true;
+                    $log.info($scope.image);
+                    var img = new Image();
+                    img.onload = function(){
+                        var context = $scope.canvas.getContext('2d');
+                        context.drawImage(img,0,0);
+                        $scope.image = $scope.canvas.toDataURL('image/jpeg');
+                    };
+                    img.src = $scope.image;
+                };
+
+
+            }]
         };
     });
 
