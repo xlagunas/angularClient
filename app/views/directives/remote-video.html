@@ -1,32 +1,8 @@
-<!--<video autoplay poster="{{user.thumbnail}}" autoplay ng-src="{{user.stream}}" height="{{height}}" width="{{width}}"></video>-->
-<!--<textarea width="{{width}}" height="{{height}}" ng-model="chat.conversation"></textarea>-->
-<!--<input type="text" ng-model="chat.msg">-->
-<!--<button class="btn btn-default" ng-click="debug()">Debug!</button>-->
-<!--<button class="btn btn-default" ng-click="sendChatMsg()">sendMsg!</button>-->
-
-<div style="position: relative;" ng-style="{width: width, height: height}">
-    <video ng-show="isVideo" autoplay poster="{{user.thumbnail}}" autoplay ng-src="{{user.stream}}" style="position: absolute;width:100%;height:100%;"></video>
-    <div style="position:absolute;height: 10%;width: 100%">
-        <button class="btn btn-default pull-right" ng-show="isVideo" ng-click="toggleView()"><i class="fa fa-2x fa-comment-o"></i></button>
-        <button class="btn btn-default pull-right" ng-hide="isVideo" ng-click="toggleView()"><i class="fa fa-2x fa-video-camera"></i></button>
-        <button class="btn btn-default" ng-click="debug()">Debug!</button>
-
+<div class="panel panel-default">
+    <div class="panel-heading">{{user.name}} {{user.firstSurname}} {{user.lastSurname}}</div>
+    <div class="panel-body text-center">
+        <div class="video-holder">
+            <video class="remote-video" autoplay poster="{{user.thumbnail}}" autoplay ng-src="{{user.stream}}"></video>
+        </div>
     </div>
-    <div ng-hide="isVideo">
-        <ul class="media-list" style="position: absolute; width:100%;height: 70%;top:10%;overflow-y: scroll">
-            <li class="media" ng-repeat="msg in messages">
-                <div ng-class="msg.imagePos">
-                    <img class="media-object" ng-src="{{msg.user.thumbnail}}" style="height: 64px;">
-                </div>
-                <div class="media-body" ng-class="msg.textAlign">
-                    <h5 class="media-heading">{{msg.user.name}}</h5>
-                    {{msg.text}}
-                </div>
-            </li>
-
-        </ul>
-        <textarea ng-model="chat.msg" style="position: absolute;width: 80%;height: 20%;top:80%;resize:none;"></textarea>
-        <button class="btn btn-default" ng-click="sendChatMsg()"style="position: absolute;width: 20%;top:80%;left:80%;height: 20%;">send</button>
-    </div>
-
 </div>

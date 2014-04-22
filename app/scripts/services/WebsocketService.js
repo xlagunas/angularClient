@@ -5,7 +5,8 @@
     angular.module('angularClientApp')
         .service('WebsocketService', ['$log', '$rootScope', function WebsocketService($log, $rootScope) {
 
-            var socket = io.connect('http://192.168.10.195:3000');
+//            var socket = io.connect('http://192.168.10.195:3000');
+            var socket = io.connect();
 //            var socket = io.connect('http://192.168.10.195:3000');
 
             return {
@@ -26,6 +27,11 @@
                             }
                         });
                     });
+                },
+                removeListener: function(eventName, callback) {
+                    if (socket.$events && socket.$events[eventName]){
+                        delete socket.$events[eventName];
+                    }
                 }
             };
         }]);

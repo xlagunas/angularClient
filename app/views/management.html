@@ -10,7 +10,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="accepted in mngedContacts.accepted">
-                    <td><img ng-src="{{accepted.thumbnail}}" height="80px"></td>
+                    <td><img ng-src="/images/{{accepted.thumbnail}}" height="80px"></td>
                     <td class="vertically-centered">{{accepted.username}}</td>
                     <td class="vertically-centered">{{accepted.name}} {{accepted.firstSurname}} {{accepted.lastSurname}}</td>
                     <td class="vertically-centered">
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="requested in mngedContacts.requested">
-                <td class="vertically-centered"><img ng-src="{{requested.thumbnail}}" height="80px"></td>
+                <td class="vertically-centered"><img ng-src="/images/{{requested.thumbnail}}" height="80px"></td>
                 <td class="vertically-centered">{{requested.username}}</td>
                 <td class="vertically-centered">{{requested.name}} {{requested.firstSurname}} {{requested.lastSurname}}</td>
                 <td class="vertically-centered">
@@ -60,7 +60,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="pending in mngedContacts.pending">
-                <td><img ng-src="{{pending.thumbnail}}" height="80px"></td>
+                <td><img ng-src="/images/{{pending.thumbnail}}" height="80px"></td>
                 <td class="vertically-centered">{{pending.username}}</td>
                 <td class="vertically-centered">{{pending.name}} {{pending.firstSurname}} {{pending.lastSurname}}</td>
                 <td class="vertically-centered">
@@ -83,7 +83,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="blocked in mngedContacts.blocked">
-                <td class="vertically-centered"><img ng-src="{{blocked.thumbnail}}" height="80px"></td>
+                <td class="vertically-centered"><img ng-src="/images/{{blocked.thumbnail}}" height="80px"></td>
                 <td class="vertically-centered">{{blocked.username}}</td>
                 <td class="vertically-centered">{{blocked.name}} {{blocked.firstSurname}} {{blocked.lastSurname}}</td>
             </tr>

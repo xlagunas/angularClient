@@ -9,47 +9,50 @@
                     'width'         : '@',
                     'user'          : '=',
                     'onSuccess'     : '=',
-                    'onError'       : '&',
-                    'constraints'   : '='
+                    'onError'       : '&'
+//                    'constraints'   : '='
                 },
                 templateUrl : 'views/directives/local-video.html',
                 restrict: 'E',
+                replace: true,
                 link: function postLink(scope, element) {
-//                    scope.startMedia();
+                    scope.startMedia();
                     scope.videoElement = element.find('video')[0];
 
                 },
                 controller: ['$scope', '$sce', '$log', 'UserService', function ($scope, $sce, $log, UserService) {
                     var fullStream = {};
 
-                    $scope.$watch('constraints', function(){
-                        $log.log('from directive constraints');
-                        $log.log($scope.constraints);
-                        if ($scope.constraints){
-                            $scope.startMedia();
-                        }
-                    });
+//                    $scope.$watch('constraints', function(){
+//                        $log.log('from directive constraints');
+//                        $log.log($scope.constraints);
+//                        if ($scope.constraints){
+//                            $scope.startMedia();
+//                        }
+//                    });
+
 
                     $scope.startMedia = function () {
-                        $log.info('starting Media');
+                        $log.log('starting Media');
                         if (!UserService.isConferencing()){
                             getMedia();
                         } else{
-                            $log.debug('no entra al getMedia()');
+                            $log.log('no entra al getMedia()');
                             $scope.user.stream = $scope.trustSrc(UserService.getLocalStream());
                             $scope.resume();
                         }
                     };
 
                     function getMedia () {
-                        getUserMedia($scope.constraints, function(localStream) {
+                        getUserMedia(UserService.getConstraints(), function(localStream) {
                                 $scope.$apply(function(){
                                     localStream.onended = function () {
+                                        $log.log('entra al onended i setejo la conference a null');
                                         UserService.setConferencing();
-                                    }
+                                    };
 
                                     fullStream = localStream;
-                                    if (!$scope.constraints.video.mandatory){
+                                    if (!UserService.getConstraints().video.mandatory){
                                         localStream = URL.createObjectURL(localStream);
                                         $scope.user.stream = {};
                                         $scope.user.stream = $scope.trustSrc(localStream);
@@ -77,7 +80,7 @@
                     };
 
                     $scope.resume = function () {
-                        $log.info('resume localVideo');
+                        $log.log('resume localVideo');
                         $scope.videoElement.play();
                     };
 
@@ -86,7 +89,7 @@
                     };
 
                     $scope.$on('finish', function (){
-                        $log.info('Closing localStream');
+                        $log.log('Closing localStream');
                         URL.revokeObjectURL($scope.user.stream);
                         fullStream.stop();
                         $scope.videoElement.src = null;

@@ -3,15 +3,28 @@
         <div class="navbar-header">
             <a class="navbar-brand" ui-sref="main.landing">ConfApp</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-desktop"/> Share Desktop</span></button></a></li>
+                        <li><a href=""><i class="fa fa-video-camera"/>  Share Video</span></a></li>
+                        <li><a href="" ><i class="fa fa-comments"/>  Chat View </span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="" ng-click="toggleSideBar('contacts')"><i class="fa fa-users"/>  Show/Hide Contacts</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="" ng-click="exitConference()"><i class="fa fa-sign-out"/>  Exit Conference</span></a></li>
+                    </ul>
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <!--<li><button class="btn btn-default navbar-btn" ng-click="toggleSideBar('contacts')"><i class="fa fa-users"></i></button></li>-->
-                <li><img ng-src="{{userSession.thumbnail}}" height="50px"></li>
+                <li><img ng-src="/images/{{userSession.thumbnail}}" height="50px"></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userSession.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Edit user info<i class="pull-right fa fa-edit"></i></a></li>
-                        <li ng-click="toggleSideBar('contacts')"><a href="#">Show contacts<i class="pull-right fa fa-users"></i></a></li>
+                        <li ng-click="toggleSideBar('contacts')"><a ng-click="toggleContacts()">Show contacts<i class="pull-right fa fa-users"></i></a></li>
                         <li class="divider"></li>
                         <li><a href="#">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
                     </ul>
@@ -19,7 +32,6 @@
             </ul>
         </div>
     </div>
-
 </nav>
 
 <div class="col-md-1 col-lg-1 col-sm-1" ng-hide="visibleColumns.actions">

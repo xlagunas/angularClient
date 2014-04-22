@@ -14,6 +14,16 @@
 
             $scope.conference = UserService.isConferencing();
 
+            $scope.exitConference = function() {
+                $scope.$broadcast('navBarEvent', 'exit');
+            };
+            $scope.shareDesktop = function () {
+                $scope.$broadcast('navBarEvent', 'share_desktop');
+            };
+            $scope.shareVideo = function () {
+                $scope.$broadcast('navBarEvent', 'share_video');
+            };
+
             $scope.toggleSideBar = function (sideBar) {
                 $scope.visibleColumns[sideBar] = ! $scope.visibleColumns[sideBar];
                 $log.info(sideBar +' '+ $scope.visibleColumns[sideBar]);
@@ -100,6 +110,8 @@
 
 
             WebsocketService.on('roster:update', function(contactInfo) {
+                $log.log('roster:update');
+                $log.log(contactInfo);
                 changeUserStatusInfo(contactInfo, function(){
                     WebsocketService.emit('roster:ack', {id: contactInfo.id});
                 });

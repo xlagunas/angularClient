@@ -5,12 +5,12 @@
         .directive('remoteVideo', function () {
             return {
                 scope:  {
-                    'height'        :   '@',
-                    'width'         :   '@',
-                    'user'          :   '=',
-                    'constraints'   :   '=',
-                    'conference'    :   '@',
-                    'onClose'       :   '='
+                    'height'            :   '@',
+                    'width'             :   '@',
+                    'user'              :   '=',
+                    'conference'        :   '@',
+                    'onClose'           :   '=',
+                    'onMessageReceived' :   '&'
                 },
                 transclude: true,
                 templateUrl : 'views/directives/remote-video.html',
@@ -24,12 +24,12 @@
                 function ($scope, $sce, $log, WebsocketService, UserService) {
                     var dataChannel = {};
                     var servers = {
-                        'iceServers' : [
-                            {'url' : 'stun:stun.l.google.com:19302'},
-                            {'url' : 'stun:stun1.l.google.com:19302'},
-                            {'url' : 'stun:stun2.l.google.com:19302'},
-                            {'url' : 'stun:stun3.l.google.com:19302'},
-                            {'url' : 'stun:stun4.l.google.com:19302'}
+                        'iceServers': [
+                            {'url': 'stun:stun.l.google.com:19302'},
+                            {'url': 'stun:stun1.l.google.com:19302'},
+                            {'url': 'stun:stun2.l.google.com:19302'},
+                            {'url': 'stun:stun3.l.google.com:19302'},
+                            {'url': 'stun:stun4.l.google.com:19302'}
                         ]
                     };
 
@@ -44,18 +44,18 @@
 
                     $scope.initPeer = function () {
                         $scope.peer = new RTCPeerConnection(servers,
-                        { optional:[
-                            {
-                                DtlsSrtpKeyAgreement: true
-                            },
-                            {
-                                RtpDataChannels: true
-                            }
-                        ]});
+                            { optional: [
+                                {
+                                    DtlsSrtpKeyAgreement: true
+                                },
+                                {
+                                    RtpDataChannels: true
+                                }
+                            ]});
 
-                        $scope.peer.onicecandidate = function(event){
+                        $scope.peer.onicecandidate = function (event) {
                             if (!$scope.peer || !event || !event.candidate) return;
-                            $log.info('Sending Ice Candidate to '+$scope.user.id);
+                            $log.info('Sending Ice Candidate to ' + $scope.user.id);
                             WebsocketService
                                 .emit('webrtc:iceCandidate', {idCall: $scope.conference, idUser: $scope.user.id, candidate: event.candidate});
 
@@ -65,8 +65,8 @@
                             $log.info(event);
                         };
 
-                        $scope.peer.onaddstream = function(stream){
-                            $scope.$apply(function(){
+                        $scope.peer.onaddstream = function (stream) {
+                            $scope.$apply(function () {
 //                                window.URL = window.URL || window.webkitURL;
 
                                 stream = URL.createObjectURL(stream.stream);
@@ -84,15 +84,15 @@
                         dataChannel.onmessage = handleMessage;
 
                         dataChannel.onopen = function (event) {
-                            $log.log('dataChannel for user '+$scope.user.id+ ' opened');
+                            $log.log('dataChannel for user ' + $scope.user.id + ' opened');
                         };
 
                         dataChannel.onclose = function (event) {
-                            $log.log('dataChannel for user '+$scope.user.id+ ' closed');
+                            $log.log('dataChannel for user ' + $scope.user.id + ' closed');
                         };
 
                         dataChannel.onerror = function (event) {
-                            $log.log('dataChannel for user '+$scope.user.id+ ' error');
+                            $log.log('dataChannel for user ' + $scope.user.id + ' error');
                         };
 
 
@@ -102,67 +102,67 @@
                             rcvDataChannel.onmessage = handleMessage;
 
                             rcvDataChannel.onopen = function (event) {
-                                $log.log('rcvDataChannel for user '+$scope.user.id+ ' opened');
+                                $log.log('rcvDataChannel for user ' + $scope.user.id + ' opened');
                             };
 
                             rcvDataChannel.onerror = function (event) {
-                                $log.log('rcvDataChannel for user '+$scope.user.id+ ' error');
+                                $log.log('rcvDataChannel for user ' + $scope.user.id + ' error');
                             };
 
                             dataChannel = rcvDataChannel;
                         };
 
 
-
                         $scope.peer.addStream(UserService.getLocalStream());
 
-                        if ($scope.user.createOffer){
+                        if ($scope.user.createOffer) {
 
-                            $scope.peer.createOffer(function(sessionDescription) {
+                            $scope.peer.createOffer(function (sessionDescription) {
                                 $log.info('creating offer..');
                                 $scope.peer.setLocalDescription(sessionDescription);
                                 WebsocketService
                                     .emit('webrtc:offer', {idCall: $scope.conference, idUser: $scope.user.id, offer: sessionDescription});
-                            }, function(offerFailure){
+                            }, function (offerFailure) {
                                 $log.log(offerFailure);
-                            }, {'mandatory': { 'OfferToReceiveAudio':true, 'OfferToReceiveVideo': true }});
+                            }, {'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }});
                         }
+
+                        WebsocketService.on($scope.user.id + ':offer', function (msg) {
+                            console.log($scope.peer);
+                            $log.info($scope.user.id + ':offer incoming message');
+                            $log.debug(msg);
+                            $log.info('Setting remote description...');
+                            $scope.peer.setRemoteDescription(new RTCSessionDescription(msg));
+                            $log.info('creating answer...');
+                            $scope.peer.createAnswer(function (sessionDescription) {
+                                $log.info('Setting local description...');
+                                $scope.peer.setLocalDescription(sessionDescription);
+                                WebsocketService
+                                    .emit('webrtc:answer', {idCall: $scope.conference, idUser: $scope.user.id, answer: sessionDescription});
+                            }, function (callbackFailure) {
+                                $log.log(callbackFailure);
+                            }, {'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }});
+                        });
+
+                        WebsocketService.on($scope.user.id + ':answer', function (msg) {
+                            $log.info($scope.user.id + ':response incoming message');
+                            $log.debug(msg);
+                            $log.info('Setting remote description...');
+                            $scope.peer.setRemoteDescription(new RTCSessionDescription(msg));
+                        });
+
+                        WebsocketService.on($scope.user.id + ':iceCandidate', function (msg) {
+                            $log.info($scope.user.id + ':iceCandidate incoming message');
+                            $log.debug(msg);
+
+                            $scope.peer.addIceCandidate(new RTCIceCandidate({
+                                'spdMLineIndex': msg.sdpMLineIndex,
+                                'candidate': msg.candidate
+                            }));
+
+                        });
+
                     };
-
-
-                    WebsocketService.on($scope.user.id+':offer', function(msg){
-                        console.log($scope.peer);
-                        $log.info($scope.user.id+':offer incoming message');
-                        $log.debug(msg);
-                        $log.info('Setting remote description...');
-                        $scope.peer.setRemoteDescription(new RTCSessionDescription(msg));
-                        $log.info('creating answer...');
-                        $scope.peer.createAnswer(function(sessionDescription){
-                            $log.info('Setting local description...');
-                            $scope.peer.setLocalDescription(sessionDescription);
-                            WebsocketService
-                                .emit('webrtc:answer', {idCall: $scope.conference, idUser: $scope.user.id, answer: sessionDescription});
-                        }, function (callbackFailure) {
-                            $log.log(callbackFailure);
-                        }, {'mandatory': { 'OfferToReceiveAudio':true, 'OfferToReceiveVideo': true }});
-                    });
-
-                    WebsocketService.on($scope.user.id+':answer', function(msg){
-                        $log.info($scope.user.id+':response incoming message');
-                        $log.debug(msg);
-                        $log.info('Setting remote description...');
-                        $scope.peer.setRemoteDescription(new RTCSessionDescription(msg));
-                    });
-
-                    WebsocketService.on($scope.user.id+':iceCandidate', function(msg){
-                        $log.info($scope.user.id+':iceCandidate incoming message');
-                        $log.debug(msg);
-                        $scope.peer.addIceCandidate(new RTCIceCandidate({
-                            'spdMLineIndex' : msg.sdpMLineIndex,
-                            'candidate': msg.candidate
-                        }));
-
-                    });
 
 
                     $scope.trustSrc = function(src) {
@@ -186,11 +186,18 @@
                         $log.log(msg);
 
                         if (msg.type === 'chat'){
-                            $scope.$apply(function(){
-                                $scope.messages.push({user: $scope.user, text: msg.msg, imagePos: 'pull-left', textAlign: 'text-left'});
-                            });
+//                            $scope.$apply(function(){
+//                                $scope.messages.push({user: $scope.user, text: msg.msg, imagePos: 'pull-left', textAlign: 'text-left'});
+//                            });
+                            msg.textAlign = 'text-left';
+                            msg.imagePos = 'pull-left';
+                            $scope.onMessageReceived({message: msg});
                         }
                     }
+
+                    $scope.$on('chatMessage', function(event, data){
+                        dataChannel.send(JSON.stringify(data));
+                    });
 
                     $scope.$watch('peer.iceConnectionState', function(){
                         $log.log('iceConnectionState Change');
@@ -224,6 +231,13 @@
                         $scope.peer.close();
                         URL.revokeObjectURL($scope.user.stream);
                         $log.info($scope.user.stream);
+                        WebsocketService.removeListener($scope.user.id+':iceCandidate', log);
+                        WebsocketService.removeListener($scope.user.id+':offer', log);
+                        WebsocketService.removeListener($scope.user.id+':answer', log);
+                    }
+
+                    function log (data) {
+                        $log.log(data);
                     }
                 }]
             };

@@ -7,37 +7,35 @@
             $scope.speakers = [];
             $scope.localSpeaker = UserService.getSession();
             $scope.conference = {id: $stateParams.id};
-//            $scope.toggleSideBar('contacts');
+            $scope.chatMessages = [];
 
+            $scope.sendMessage = function(message) {
+                $log.log('From Controller');
+                $log.log(message);
+                $log.log(UserService.getSession());
+                var newMessage = {};
+                newMessage.type = 'chat';
+                newMessage.text = message;
+                newMessage.user = UserService.getSession().name +
+                    ' '+ UserService.getSession().firstSurname + ' ' +
+                    UserService.getSession().firstSurname;
+                newMessage.image = UserService.getSession().thumbnail;
+                newMessage.textAlign = 'text-right';
+                newMessage.imagePos = 'pull-right';
+                $scope.$broadcast('chatMessage', newMessage);
+                $scope.chatMessages.push(newMessage);
 
-            (function(){
-                $modal.open({
-                    templateUrl: 'views/modals/videoSource.html',
-                    controller: function($scope) {
-                        $scope.setSource = function(source){
-                            $scope.$close(source);
-                        };
-                    }
-                }).result.then(function(success){
-                    if (success){
-                        if (success === 'desktop'){
-                            $log.info('desktop constraints');
-                            $scope.constraints = {
-                                video: { mandatory: { chromeMediaSource: 'screen'}},
-                                audio: true
-                            };
-                        }
-                        else if (success === 'camera') {
-                            $log.info('video constraints');
-                            $scope.constraints = {
-                                video: true,
-                                audio: true
-                            };
-                        }
-                        $log.log($scope.constraints);
-                    }
+            };
+
+            $scope.rcvMessage = function(message) {
+                $log.log('receive message from datachannel');
+                $scope.$apply(function(){
+                    $scope.chatMessages.push(message);
                 });
-            })();
+
+                $log.log($scope.chatMessages);
+            };
+
 
             $scope.onSuccess = function(localStream) {
                 $log.info('Entro al onSuccess!!!!');
@@ -89,9 +87,29 @@
                 $log.log('exitConference');
                 WebsocketService.emit('call:unregister', {id: $stateParams.id});
                 $scope.$broadcast('finish', {});
-//                $state.go('main.landing');
-                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
+                $state.go('main.landing');
+//                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
             };
+
+            $scope.shareDesktop = function () {
+                UserService.setConstraints({video: { mandatory: { chromeMediaSource: 'screen'}}, audio: false });
+                WebsocketService.emit('call:unregister', {id: $stateParams.id});
+                $scope.$broadcast('finish', {});
+                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
+
+            };
+
+            $scope.shareVideo = function () {
+                UserService.setConstraints({video: true, audio: false });
+                WebsocketService.emit('call:unregister', {id: $stateParams.id});
+                $scope.$broadcast('finish', {});
+                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
+
+            };
+
+            $scope.$on('navBarEvent', function(data){
+                $log.log(data);
+            });
 
         }]);
 

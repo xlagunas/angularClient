@@ -92,7 +92,7 @@
                         }
 //                        constraints:
                     },
-                    controller: function($scope, $log, user) {
+                    controller: ['$scope', '$log', 'user', function($scope, $log, user) {
                         $scope.user = user;
                         $scope.confirm = function() {
                             $scope.$close(true);
@@ -100,7 +100,7 @@
                         $scope.cancel = function() {
                             $scope.$dismiss();
                         };
-                    }
+                    }]
                 })
                 .result.then(function(result){
                     if (result){

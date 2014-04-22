@@ -28,7 +28,7 @@
             WebsocketService.on('user:create', function(data){
                 $log.info(data);
                 UserService.setSession(data);
-//                $state.transitionTo('main.landing');
+                $state.transitionTo('main.landing');
                 $scope.takeImage = true;
             });
 

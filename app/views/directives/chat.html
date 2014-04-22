@@ -1,0 +1,24 @@
+<div class="col-md-3" style="position: fixed; bottom: 0; right: 0;">
+    <div class="panel panel-default" style="padding-bottom: 0px; margin-bottom: 0px; opacity: 0.8;">
+        <div class="panel-heading clearfix">
+            <span class="text-center">Message Chat</span>
+            <button class="btn btn-default btn-xs pull-right" ng-click="toggleChat()"><i class="fa" ng-class="show ? 'fa-toggle-down' : 'fa-toggle-up'"></i></button>
+        </div>
+        <div class="panel-body" ng-show="show">
+            <ul class="media-list" style="height: 400px; overflow-y: scroll;">
+                <li class="media" ng-repeat="msg in messages">
+                    <div ng-class="msg.imagePos">
+                        <img class="media-object" ng-src="/images/{{msg.image}}" style="height: 64px;">
+                    </div>
+                    <div class="media-body" ng-class="msg.textAlign">
+                        <h5 class="media-heading">{{msg.user}} </h5>
+                        {{msg.text}}
+                    </div>
+                </li>
+            </ul>
+            <div class="media-body" ng-class="msg.textAlign">
+                <textarea style="resize: none;width: 100%;" key-listener="sendMessage()" key-code="13" ng-model="message"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

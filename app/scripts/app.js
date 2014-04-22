@@ -81,8 +81,8 @@
                 var _log = $delegate.log; //Saving the original behavior
 
 //                $delegate.log = function(message) { };
-                $delegate.info = function(message) { };
-                $delegate.debug = function(message) { };
+//                $delegate.info = function(message) { };
+//                $delegate.debug = function(message) { };
 
 
                 return $delegate;
