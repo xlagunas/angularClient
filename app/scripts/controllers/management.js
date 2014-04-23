@@ -11,7 +11,9 @@
                 {category: 'PENDING', name: 'pending'},
                 {category: 'BLOCKED', name: 'blocked'}
             ];
+            //AQUESTA mngContacts sha de canviar un cop estigui modificada la vista!
             $scope.mngedContacts = UserService.getUsers();
+            $scope.contactList = UserService.getUsers();
 
             $scope.updateContact = function (_id, current, future) {
                 var msg = {_id: _id, current: current, future: future};
