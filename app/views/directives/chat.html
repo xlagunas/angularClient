@@ -5,7 +5,7 @@
             <button class="btn btn-default btn-xs pull-right" ng-click="toggleChat()"><i class="fa" ng-class="show ? 'fa-toggle-down' : 'fa-toggle-up'"></i></button>
         </div>
         <div class="panel-body" ng-show="show">
-            <ul class="media-list" style="height: 400px; overflow-y: scroll;">
+            <ul class="media-list" style="height: 400px; overflow-y: scroll;" auto-scroll="messages">
                 <li class="media" ng-repeat="msg in messages">
                     <div ng-class="msg.imagePos">
                         <img class="media-object" ng-src="/images/{{msg.image}}" style="height: 64px;">
