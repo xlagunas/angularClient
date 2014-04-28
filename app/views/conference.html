@@ -37,7 +37,7 @@
     <div class="col-md-3 col-xs-3">
         <local-video on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
     </div>
-    <div ng-class="(speakers.length > 1) ? 'col-md-4' : 'col-md-9'" ng-repeat="speaker in speakers">
+    <div ng-class="(speakers.length > 1) ? 'col-md-4 col-xs-4' : 'col-md-9 col-xs-9'" ng-repeat="speaker in speakers">
         <remote-video user="speaker" conference="{{conference.id}}" on-close="closeStream" on-message-received="rcvMessage(message)"></remote-video>
     </div>
 </div>

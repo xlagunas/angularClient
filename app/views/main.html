@@ -17,6 +17,9 @@
                         <li><a href="" ng-click="exitConference()"><i class="fa fa-sign-out"/>  Exit Conference</a></li>
                     </ul>
                 </li>
+                <li><a ui-sref="main.landing"><i class="fa fa-home fa-2x icon-color"></i></a></li>
+                <li><a ui-sref="main.calendar"><i class="fa fa-calendar fa-2x icon-color"></i></a></li>
+                <li><a ui-sref="main.management"><i class="fa fa-users fa-2x icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><img ng-src="/images/{{userSession.thumbnail}}" height="50px"></li>
@@ -26,7 +29,7 @@
                         <li><a href="#">Edit user info<i class="pull-right fa fa-edit"></i></a></li>
                         <li ng-click="toggleSideBar('contacts')"><a ng-click="toggleContacts()">Show contacts<i class="pull-right fa fa-users"></i></a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
+                        <li><a href="" ng-click="logout()">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
                     </ul>
                 </li>
             </ul>
@@ -34,50 +37,51 @@
     </div>
 </nav>
 
-<div class="col-md-1 col-lg-1 col-sm-1" ng-hide="visibleColumns.actions">
-    <div class="row">
-        <nav class="col-lg-1 col-md-1 col-sm-1">
-            <ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">
-                <ul class="col-md-12 col-lg-12 col-sm-12 list-unstyled text-center">
-                    <!--<li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>-->
-                    <li><a ui-sref="main.calendar"><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></a></li>
-                    <li>
-                        <a ui-sref="main.management">
-                            <i class="fa fa-users fa-3x list-icon-padding icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>
-                        </a>
-                    </li>
-                    <li><a ng-hide="conference" ui-sref="main.conference({id: conference.id})">
-                            <i class="fa fa-video-camera fa-3x list-icon-padding icon-color update-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>
-                        </a>
-                    </li>
-                    <li><a ui-sref="main.landing"><i class="fa fa-phone-square fa-3x" style="color: red;"></i></a></li>
+<!--<div class="col-md-1 col-lg-1 col-sm-1" ng-hide="visibleColumns.actions">-->
+    <!--<div class="row">-->
+        <!--<nav class="col-lg-1 col-md-1 col-sm-1">-->
+            <!--<ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">-->
+                <!--<ul class="col-md-12 col-lg-12 col-sm-12 list-unstyled text-center">-->
+                    <!--&lt;!&ndash;<li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>&ndash;&gt;-->
+                    <!--<li><a ui-sref="main.calendar"><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></a></li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="main.management">-->
+                            <!--<i class="fa fa-users fa-3x list-icon-padding icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li><a ng-hide="conference" ui-sref="main.conference({id: conference.id})">-->
+                            <!--<i class="fa fa-video-camera fa-3x list-icon-padding icon-color update-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li><a ui-sref="main.landing"><i class="fa fa-phone-square fa-3x" style="color: red;"></i></a></li>-->
 
-                </ul>
-            </ul>
-        </nav>
+                <!--</ul>-->
+            <!--</ul>-->
+        <!--</nav>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="col-md-2 col-lg-2 col-sm-2 col-xs-3" ng-hide="visibleColumns.contacts" style="height: 100%">
+    <div ng-if="contactList.loaded" style="height: 100%">
+        <div class="row">
+            <div class="input-group col-md-12 col-lg-12 pull-right" style="padding-bottom: 10px;">
+                <input type="text" class="form-control" ng-model="userTextBox.username" placeholder="Find by username">
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="findContacts()" type="button"><i class="fa fa-plus"></i></button></span>
+            </div>
+        </div>
+        <ul class="list-group" style="height: calc(100% - 50px); overflow-y: scroll">
+            <contact-item contact="contact" ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
+        </ul>
+    </div>
+
+    <div ng-if="contactList.loaded == false">
+        <div class="input-group list-icon-padding col-md-12 pull-right text-center">
+            <h4 class="list-group-item-heading"><i class="fa fa-refresh fa-spin fa-2x"></i></h4>
+            <p class="list-group-item-text">Loading contacts, please wait...</p>
+        </div>
     </div>
 </div>
 <div ng-class="mainContentSizeClass.value" >
     <div class="" ui-view></div>
 </div>
 
-<div class="col-md-3 col-lg-3 col-sm-3" ng-hide="visibleColumns.contacts">
-    <div class="">
-        <div ng-if="contactList.loaded">
-            <div class="input-group list-icon-padding col-md-12 col-lg-9 pull-right">
-                <input type="text" class="form-control" ng-model="userTextBox.username" placeholder="Find by username">
-                <span class="input-group-btn"><button class="btn btn-default" ng-click="findContacts()" type="button"><i class="fa fa-plus"></i></button></span>
-            </div>
-            <div class="list-group">
-                <contact-item contact="contact" ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
-            </div>
-        </div>
 
-        <div ng-if="contactList.loaded == false">
-            <div class="input-group list-icon-padding col-md-8 pull-right text-center">
-                <h4 class="list-group-item-heading"><i class="fa fa-refresh fa-spin fa-2x"></i></h4>
-                <p class="list-group-item-text">Loading contacts, please wait...</p>
-            </div>
-        </div>
-    </div>
-</div>

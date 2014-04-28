@@ -3,13 +3,13 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_',
-        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _) {
+        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_', '$sessionStorage',
+        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
             $scope.visibleColumns = {actions: false, contacts: false};
-            $scope.mainContentSizeClass = {value: 'col-lg-8 col-md-8'};
+            $scope.mainContentSizeClass = {value: 'col-lg-10 col-md-10 col-xs-9'};
             $scope.userTextBox = {};
 
             $scope.conference = UserService.isConferencing();
@@ -29,17 +29,23 @@
                 $log.info(sideBar +' '+ $scope.visibleColumns[sideBar]);
 
                 if ($scope.visibleColumns.actions && $scope.visibleColumns.contacts ) {
-                    $scope.mainContentSizeClass.value = 'col-lg-12 col-md-12';
+                    $scope.mainContentSizeClass.value = 'col-lg-12 col-md-12 col-xs-12';
                     $log.debug('Tots dos collapsed: true');
                 }
                 else if (!$scope.visibleColumns.actions && !$scope.visibleColumns.contacts) {
-                    $scope.mainContentSizeClass.value = 'col-lg-8 col-md-8';
+                    $scope.mainContentSizeClass.value = 'col-lg-10 col-md-10 col-xs-9';
                     $log.debug('Tots dos collapsed: false');
                 }
                 else {
-                    $scope.mainContentSizeClass.value = 'col-lg-10 col-md-10';
+                    $scope.mainContentSizeClass.value = 'col-lg-12 col-md-12 col-xs-12';
                     $log.debug('entra a 1 dels dos');
                 }
+            };
+
+            $scope.logout = function (){
+                $log.debug('crido al logout');
+                $sessionStorage.$reset();
+                $state.transitionTo('login');
             };
 
             $scope.userSession = UserService.getSession();

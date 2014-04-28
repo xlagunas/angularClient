@@ -2,17 +2,11 @@
 <div class="panel panel-default">
     <div class="panel-heading clearfix">
         <span> Select the type of contacts you want to see from the dropdown button</span>
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Action <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Accepted</a></li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Requested</a></li>
-                <li><a href="#">Blocked</a></li>
-
-            </ul>
+        <div class="pull-right">
+            <span class="label label-default" hover="label-primary">Accepted</span>
+            <span class="label label-default" hover="label-success">Requested </span>
+            <span class="label label-default" hover="label-warning">Pending</span>
+            <span class="label label-default" hover="label-danger">Blocked</span>
         </div>
     </div>
     <div class="panel-body">
@@ -25,7 +19,7 @@
                                 <i class="fa fa-gears"></i> <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li ng-show="status=='requested'"><a href=""><i class="fa fa-check pull-left online"/> <span><b>Accept</b></span></a></li>
+                                <li ng-show="status=='requested'"><a href="" ng-click="updateContact(user._id, 'requested','accepted')"><i class="fa fa-check pull-left online"/> <span><b>Accept</b></span></a></li>
                                 <li ng-show="status=='requested'"><a href=""><i class="fa fa-times pull-left busy"/> <span><b>Reject</b></span></a></li>
                                 <li ng-show="status == 'accepted'"><a href=""><i class="fa fa-ban pull-left busy"/> <span><b>Lock</b></span></a></li>
                                 <li ng-show="status == 'blocked'"><a href=""><i class="fa fa-unlock-alt pull-left online"/> <span><b>Unlock</b></span></a></li>

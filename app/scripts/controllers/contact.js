@@ -5,8 +5,9 @@
         .controller('ContactCtrl', ['$scope', '$stateParams', '$log', '$modal', 'UserService','_','WebsocketService',
         function ($scope, $stateParams, $log,  $modal, UserService, _, WebsocketService) {
             $log.info('id:' +$stateParams.id);
-            if ($stateParams.id === UserService.getSession()._id){
+            if ($stateParams.id === UserService.getSession()._id || $stateParams.id === null || $stateParams.id === ''){
                 $scope.user = UserService.getSession();
+                console.log($scope.user);
             }
             else {
                 $scope.user = _.find(UserService.getUsers().accepted, function(user){return (user._id === $stateParams.id);});

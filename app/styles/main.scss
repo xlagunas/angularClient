@@ -167,7 +167,7 @@ html, body {
 }
 
 .accepted {
-  background-color: #5cb85c;
+  background-color: #428bca;
 }
 
 .pending {
@@ -176,4 +176,16 @@ html, body {
 
 .blocked {
   background-color: #f0ad4e;
+}
+
+.requested {
+  background-color: #5cb85c;
+}
+
+body, html {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
 }

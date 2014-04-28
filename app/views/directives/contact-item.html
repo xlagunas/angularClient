@@ -1,15 +1,15 @@
-<div class="pull-right list-group-item col-md-9" ng-click="displayContactInfo()" drag>
+<li class="list-group-item col-md-12 col-lg-12" ng-click="displayContactInfo()" drag style="background-color: whitesmoke;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-4 hidden-md hidden-xs" style="padding-left: 0px;">
                 <img class="media-object" ng-src="/images/{{contact.thumbnail}}" width="64px">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-xs-6">
                 <span>{{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</span>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-xs-2">
                 <i class="fa fa-circle-o text-right" ng-class="(contact.status | lowercase) || 'offline'"></i>
             </div>
         </div>
     </div>
-</div>
+</li>
