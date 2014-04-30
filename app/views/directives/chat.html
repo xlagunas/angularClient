@@ -10,9 +10,16 @@
                     <div ng-class="msg.imagePos">
                         <img class="media-object" ng-src="/images/{{msg.image}}" style="height: 64px;">
                     </div>
-                    <div class="media-body" ng-class="msg.textAlign">
+                    <div ng-hide="msg.data" class="media-body" ng-class="msg.textAlign">
                         <h5 class="media-heading">{{msg.user}} </h5>
                         {{msg.text}}
+                    </div>
+                    <div ng-show="msg.data" class="media-body" ng-class="msg.textAlign">
+                        <a ng-switch="msg.fileType" ng-href="{{msg.data}}" download="{{msg.text}}">
+                            <img ng-switch-when="image/png" ng-src="{{msg.data}}" style="width: 100%">
+                            <!--<a ng-switch-when="'image/png' || 'image/jpeg' || 'image/jpg'" ng-href="{{msg.data}}" download="{{msg.text}}"><img ng-src="{{msg.text}}"></a>-->
+                            <p ng-switch-default="{{msg.data}}" download="{{msg.text}}">{{msg.text}}</p>
+                        </a>
                     </div>
                 </li>
             </ul>

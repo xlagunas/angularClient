@@ -1,3 +1,4 @@
+/* global URL, RTCPeerConnection, RTCSessionDescription, RTCIceCandidate */
 (function(){
     'use strict';
 
@@ -32,7 +33,7 @@
                             {'url': 'stun:stun4.l.google.com:19302'}
                         ]
                     };
-
+                    $scope.files = {};
                     $scope.localUser = UserService.getSession();
                     $scope.isVideo = true;
                     $scope.chat = {msg: ''};
@@ -47,14 +48,17 @@
                             { optional: [
                                 {
                                     DtlsSrtpKeyAgreement: true
-                                },
-                                {
-                                    RtpDataChannels: true
                                 }
+//                                },
+//                                {
+//                                    RtpDataChannels: true
+//                                }
                             ]});
 
                         $scope.peer.onicecandidate = function (event) {
-                            if (!$scope.peer || !event || !event.candidate) return;
+                            if (!$scope.peer || !event || !event.candidate) {
+                                return event;
+                            }
                             $log.info('Sending Ice Candidate to ' + $scope.user.id);
                             WebsocketService
                                 .emit('webrtc:iceCandidate', {idCall: $scope.conference, idUser: $scope.user.id, candidate: event.candidate});
@@ -186,17 +190,50 @@
                         $log.log(msg);
 
                         if (msg.type === 'chat'){
-//                            $scope.$apply(function(){
-//                                $scope.messages.push({user: $scope.user, text: msg.msg, imagePos: 'pull-left', textAlign: 'text-left'});
-//                            });
                             msg.textAlign = 'text-left';
                             msg.imagePos = 'pull-left';
                             $scope.onMessageReceived({message: msg});
+                        }
+
+                        else if (msg.type === 'file') {
+
+
+                            if (msg.data !== null ){
+                                if ($scope.files[msg.file] instanceof Array === false){
+                                    $scope.files[msg.file] = [];
+                                }
+                                $scope.files[msg.file].push(msg.data);
+                            }
+
+                            if (msg.complete){
+                                $log.log('missatge complet!');
+                                var file = $scope.files[msg.file].join('');
+                                $log.log(file);
+                                $scope.onMessageReceived(
+                                    {
+                                        message:
+                                        {
+                                            user:$scope.user,
+                                            image: $scope.user.thumbnail,
+                                            text: msg.file,
+                                            fileType: msg.fileType,
+                                            data: file,
+                                            imagePos: 'pull-left',
+                                            textAlign: 'pull-left'
+                                        }
+                                    });
+                                $log.log($scope.messages);
+                            }
                         }
                     }
 
                     $scope.$on('chatMessage', function(event, data){
                         dataChannel.send(JSON.stringify(data));
+                    });
+
+                    $scope.$on('fileMessage', function(event, data){
+                        $log.log('fileMessageEvent al remote');
+                        chunkify(data);
                     });
 
                     $scope.$watch('peer.iceConnectionState', function(){
@@ -221,7 +258,7 @@
                         }
                     });
 
-                    $scope.$on('finish', function(event, data){
+                    $scope.$on('finish', function(){
                         $log.log('finish event');
                         cleanUp();
 
@@ -238,6 +275,33 @@
 
                     function log (data) {
                         $log.log(data);
+                    }
+
+                    function chunkify (data){
+                        var chunkSize = 63500;
+
+                        var send = {};
+                        send.type = 'file';
+                        send.data = data.data;
+                        send.file = data.file.name;
+                        send.fileType = data.file.type;
+
+                        if (send.data.length < chunkSize){
+                            send.complete = true;
+                        }
+                        else{
+                            send.complete = false;
+                            send.data = send.data.slice(0, chunkSize);
+
+                        }
+                        dataChannel.send(JSON.stringify(send));
+                        data.data = data.data.slice(chunkSize);
+
+                        if (data.data.length){
+                            setTimeout(function(){
+                                chunkify(data);
+                            }, 500);
+                        }
                     }
                 }]
             };

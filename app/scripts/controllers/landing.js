@@ -12,5 +12,9 @@
             $log.info('Entro al fill!');
 
             $scope.method();
+
+            $scope.drop = function (file) {
+                console.log(file);
+            };
         }]);
 }());

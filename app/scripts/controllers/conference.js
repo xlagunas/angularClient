@@ -9,6 +9,11 @@
             $scope.conference = {id: $stateParams.id};
             $scope.chatMessages = [];
 
+            $scope.onDropFile = function(file){
+                $log.log('dropFile in controller received!');
+                $scope.$broadcast('fileMessage', file);
+            };
+
             $scope.sendMessage = function(message) {
                 $log.log('From Controller');
                 $log.log(message);

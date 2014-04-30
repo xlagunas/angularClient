@@ -10,8 +10,8 @@
         'ui.calendar',
         'ngStorage'
     ])
-        .config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider', '$sceProvider', '$provide',
-        function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider, $provide) {
+        .config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider', '$sceProvider', '$provide', '$compileProvider',
+        function ($stateProvider, $urlRouterProvider, $sceDelegateProvider, $sceProvider, $provide, $compileProvider) {
 
             $urlRouterProvider.otherwise('/login');
 
@@ -76,6 +76,8 @@
             $sceProvider.enabled(true);
 
             $sceDelegateProvider.resourceUrlWhitelist(['self', /^https?:\/\/(cdn\.)?vb2.i2cat.net/]);
+            $compileProvider.aHrefSanitizationWhitelist(/^\s (https|ftp|file|blob):|data:text|data:image|data:application\//);
+//            $compileProvider.urlSanitizationWhitelist(/^\s (https|ftp|file|blob):|data:image\//);
 
             $provide.decorator('$log', ['$delegate', '$sniffer', function($delegate, $sniffer) {
                 var _log = $delegate.log; //Saving the original behavior
