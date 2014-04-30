@@ -76,7 +76,7 @@
             $sceProvider.enabled(true);
 
             $sceDelegateProvider.resourceUrlWhitelist(['self', /^https?:\/\/(cdn\.)?vb2.i2cat.net/]);
-            $compileProvider.aHrefSanitizationWhitelist(/^\s (https|ftp|file|blob):|data:text|data:image|data:application\//);
+            $compileProvider.aHrefSanitizationWhitelist(/^\s (https|ftp|file|blob):|data:text|data:image|data:application|:\/\/(cdn\.)?vb2.i2cat.net\//);
 //            $compileProvider.urlSanitizationWhitelist(/^\s (https|ftp|file|blob):|data:image\//);
 
             $provide.decorator('$log', ['$delegate', '$sniffer', function($delegate, $sniffer) {
