@@ -68,7 +68,7 @@
                 <span class="input-group-btn"><button class="btn btn-default" ng-click="findContacts()" type="button"><i class="fa fa-plus"></i></button></span>
             </div>
         </div>
-        <ul class="list-group" style="height: calc(100% - 50px); overflow-y: scroll">
+        <ul class="list-group" style="height: calc(100% - 50px); overflow-y: auto">
             <contact-item contact="contact" ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
         </ul>
     </div>
