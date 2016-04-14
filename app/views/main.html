@@ -1,0 +1,99 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h1><a class="navbar-brand" ui-sref="main.landing">ConfApp</a></h1>
+
+        <md-button ui-sref="main.landing">
+            <md-icon md-font-set="fa fa-home fa-2x"></md-icon>
+        </md-button>
+        <md-button ui-sref="main.calendar">
+            <md-icon md-font-set="fa fa-calendar fa-2x"></md-icon>
+        </md-button>
+        <md-button ui-sref="main.management">
+            <md-icon md-font-set="fa fa-users fa-2x"
+                     ng-class="{'update-color': userContacts.requested.length>0}"></md-icon>
+        </md-button>
+
+        <!-- TODO: TO BE REMOVDE Actions menu-->
+        <md-menu>
+            <md-button aria-label="Helper menu" ng-click="$mdOpenMenu()">
+                <span md-menu-origin>Actions</span>
+            </md-button>
+            <md-menu-content width="2">
+                <md-menu-item>
+                    <md-button ng-click="exitConference()">
+                        <md-icon md-menu-align-target md-menu-origin md-font-set="fa fa-sign-out"></md-icon>
+                        Exit conference
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+        <!--User menu, logout preferences etc-->
+        <md-menu>
+            <md-button aria-label="Open user interactions menu" ng-click="$mdOpenMenu()">
+                <span md-menu-origin>Logged in as: {{userSession.username}}</span>
+            </md-button>
+            <md-menu-content width="2">
+                <md-menu-item>
+                    <md-button>
+                        <md-icon md-menu-align-target md-menu-origin md-font-set="fa fa-edit"></md-icon>
+                        Edit user info
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="toggleContacts()">
+                        <md-icon md-menu-align-target md-menu-origin md-font-set="fa fa-comments"></md-icon>
+                        Show Conctacs
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="logout()">
+                        <md-icon md-menu-align-target md-menu-origin md-font-set="fa fa-sign-out"></md-icon>
+                        Log out
+                    </md-button>
+                </md-menu-item>
+
+            </md-menu-content>
+        </md-menu>
+
+    </div>
+
+</md-toolbar>
+
+<section layout="row" flex>
+    <md-sidenav
+            class="md-sidenav-left"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-md')"
+            md-disable-backdrop
+            md-whiteframe="4"
+            ng-hide="visibleColumns.contacts" flex>
+
+        <md-subheader class="md-primary">Contacts</md-subheader>
+
+        <div ng-if="contactList.loaded">
+            <md-list flex>
+                <md-input-container>
+                    <label>Search by username</label>
+                    <md-icon md-font-icon="fa fa-search"></md-icon>
+                    <input ng-model="userTextBox.username" ng-change="findContacts()">
+                </md-input-container>
+                <contact-item contact="contact"
+                              ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
+            </md-list>
+        </div>
+
+        <div ng-if="contactList.loaded == false">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                Loading Contacts, please wait...
+            </div>
+        </div>
+
+    </md-sidenav>
+</section>
+
+<md-content flex layout="column" ng-class="mainContentSizeClass.value">
+    <div class="" ui-view></div>
+</md-content>

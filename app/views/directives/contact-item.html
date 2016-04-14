@@ -1,0 +1,8 @@
+<md-list-item class="md-3-line" ng-click="displayContactInfo()" drag>
+    <img ng-src="/images/{{contact.thumbnail}}" class="md-avatar" alt="{{contact.username}}" />
+    <div class="md-list-item-text" layout="column">
+        <h3>{{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</h3>
+        <h4>{{ item.what }}</h4>
+        <p>{{(contact.status | lowercase) || 'offline'}}</p>
+    </div>
+</md-list-item>

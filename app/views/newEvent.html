@@ -1,0 +1,36 @@
+<div class="form-group col-md-12">
+    <label for="title" class="col-md-6 control-label">Event title: </label>
+    <div class="col-md-6">
+        <input id="title" class="form-control" type="text" ng-model="event.title" placeholder="Event title">
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <label for="endCheckbox" class="col-md-6 control-label">Has different end date?</label>
+    <div class="col-md-6">
+        <input id="endCheckbox" type="checkbox" ng-model="hasEndDate" ng-init="hasEndDate=false">
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <label for="allDay" class="col-md-6 control-label">Lasts all day?</label>
+    <div class="col-md-6">
+        <input id="allDay" type="checkbox" ng-model="isAllDay" ng-init="isAllDay=true">
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <label for="start" class="col-md-6 control-label">Start date: </label>
+    <div class="col-md-6">
+        <input  id="start" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="event.start" min="minDate"  is-open="false" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <label for="start" class="col-md-6 control-label">Start date: </label>
+    <div class="col-md-6">
+        <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+    </div>
+</div>
+<div ng-show="hasEndDate" class="form-group col-md-12">
+    <label for="end" class="col-md-6 control-label">Event title: </label>
+    <div class="col-md-6">
+        <input  id="end" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="event.end" min="minDate"  is-open="false" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+    </div>
+</div>

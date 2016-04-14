@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4>{{message}}</h4>
+</div>
+<div class="modal-body" style="height: 150px">
+    <div class="form-group col-md-12">
+        <label for="title" class="col-md-6 control-label">Event title: </label>
+        <div class="col-md-6">
+            <input id="title" class="form-control" type="text" ng-model="newEvent.title" placeholder="Event title" ng-disabled="!isNew">
+        </div>
+    </div>
+
+    <div class="form-group col-md-12">
+        <label for="start" class="col-md-6 control-label">Event date: </label>
+        <div class="col-md-6">
+            <input  id="start" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newEvent.start" min="minDate"  is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-disabled="!isNew"/>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12" ng-show="isNew">
+        <label for="contacts" class="col-md-6 control-label">Share event with contacts: </label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="contacts" placeholder="Search Contacts" ng-model="contact" typeahead="username as user.username for user in contacts | filter:$viewValue" typeahead-on-select="addUser($item, $model, $label)">
+        </div>
+    </div>
+    <div class="form-group col-md-12" ng-show="isNew">
+        <label for="selected" class="col-md-6 control-label">Selected users: </label>
+        <div class="col-md-6">
+            <ul id="selected" class="list-group">
+                <li ng-repeat="user in selectedContacts"class="list-group-item">
+                    <p>{{user.name}} {{user.firstSurname}} {{user.lastSurname}}
+                        <button ng-hide="{{selfUser.id === user.id}}" class="btn btn-default btn-xs pull-right" ng-click="removeUser(user)"><i class="fa fa-times-circle"></i></button>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group col-md-12" ng-show="!isNew">
+        <label for="totalUsers" class="col-md-6 control-label">Total participants: </label>
+        <div class="col-md-6">
+            <input id="totalUsers" class="form-control" type="text" ng-model="newEvent.users.length" disabled>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-click="delete()" ng-show="!isNew">Delete</button>
+    <button class="btn btn-default" ng-click="dismiss()" ng-show="!isNew">Return</button>
+    <button class="btn btn-warning" ng-click="dismiss()" ng-show="isNew">Cancel</button>
+    <button class="btn btn-default" ng-click="save()" ng-show="isNew">Submit</button>
+</div>
