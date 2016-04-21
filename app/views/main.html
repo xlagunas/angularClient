@@ -61,39 +61,40 @@
 
 </md-toolbar>
 
-<section layout="row" flex>
-    <md-sidenav
-            class="md-sidenav-left"
-            md-component-id="left"
-            md-is-locked-open="$mdMedia('gt-md')"
-            md-disable-backdrop
-            md-whiteframe="4"
-            ng-hide="visibleColumns.contacts" flex>
+<div layout="row" flex>
+    <section>
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-disable-backdrop
+                ng-hide="visibleColumns.contacts" flex>
 
-        <md-subheader class="md-primary">Contacts</md-subheader>
+            <md-subheader class="md-primary">Contacts</md-subheader>
 
-        <div ng-if="contactList.loaded">
-            <md-list flex>
-                <md-input-container>
-                    <label>Search by username</label>
-                    <md-icon md-font-icon="fa fa-search"></md-icon>
-                    <input ng-model="userTextBox.username" ng-change="findContacts()">
-                </md-input-container>
-                <contact-item contact="contact"
-                              ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
-            </md-list>
-        </div>
-
-        <div ng-if="contactList.loaded == false">
-            <div layout="row" layout-sm="column" layout-align="space-around">
-                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                Loading Contacts, please wait...
+            <div ng-if="contactList.loaded">
+                <md-list flex>
+                    <md-input-container>
+                        <label>Search by username</label>
+                        <md-icon md-font-icon="fa fa-search"></md-icon>
+                        <input ng-model="userTextBox.username" ng-change="findContacts()">
+                    </md-input-container>
+                    <contact-item contact="contact"
+                                  ng-repeat="contact in userContacts.accepted | filter: userTextBox"></contact-item>
+                </md-list>
             </div>
-        </div>
 
-    </md-sidenav>
-</section>
+            <div ng-if="contactList.loaded == false">
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    Loading Contacts, please wait...
+                </div>
+            </div>
 
-<md-content flex layout="column" ng-class="mainContentSizeClass.value">
-    <div class="" ui-view></div>
-</md-content>
+        </md-sidenav>
+    </section>
+
+    <md-content flex layout="column" ng-class="mainContentSizeClass.value">
+        <div class="" ui-view></div>
+    </md-content>
+</div>
