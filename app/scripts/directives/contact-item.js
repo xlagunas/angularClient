@@ -3,7 +3,7 @@
 
 
     angular.module('angularClientApp')
-    .directive('contactItem', ['$log', function ($log) {
+    .directive('contactItem', ['$log', 'SERVER_URL', function ($log, SERVER_URL) {
         return {
             scope: {
                 contact: '='
@@ -11,7 +11,8 @@
             templateUrl: 'views/directives/contact-item.html',
             restrict: 'E',
             replace: 'true',
-            controller: ['$scope', '$state', function ($scope, $state) {
+            controller: ['$scope', '$state', 'SERVER_URL', function ($scope, $state, SERVER_URL) {
+                $log.info(SERVER_URL);
                 $scope.displayContactInfo = function () {
                     $state.go('main.contact', {id: $scope.contact._id});
                 };
