@@ -1,54 +1,24 @@
-<div class="container">
-    <div class="col-md-6">
-        <img class="thumbnail" ng-src="images/{{user.thumbnail}}">
-    </div>
-    <div class="col-md-6 text-center">
-        <div class="row">
-            <h4>User information</h4>
-        </div>
-        <div>
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <label for="userInfo" class="col-sm-4 control-label">User name: </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="userInfo" readonly value="{{user.name}}  {{user.firstSurname}} {{user.lastSurname}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="username" class="col-sm-4 control-label">Username: </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="username" readonly value="{{user.username}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="status" class="col-sm-4 control-label">Status: </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="status" readonly value="{{(user.status | lowercase) || 'offline'}}">
-                    </div>
-                </div>
-
-
-                <hr>
-                <div class="form-group">
-                    <label for="actions" class="col-sm-4 control-label">Actions: </label>
-                    <div class="col-sm-8" id="actions">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default" ng-click="callConfirmation()" ng-disabled="{{user.status == 'OFFLINE' || !user || !user.status}}"><i class="fa fa-video-camera"></i></button>
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-disabled="{{user.status == 'OFFLINE' || !user || !user.status}}">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu text-left" role="menu">
-                                <li><a href="#"><i class="fa fa-desktop"></i>  share desktop</a></li>
-                                <li><a href="#"><i class="fa fa-cogs"></i>  advanced settings</a></li>
-
-                            </ul>
-                        </div>
-                        <button class="btn btn-default" ng-click="createRoom('AUDIO')" ng-disabled="{{user.status == 'OFFLINE' || !user || !user.status}}"><i class="fa fa-volume-up"></i></button>
-                        <button class="btn btn-default" ng-click="createEvent()"><i class="fa fa-calendar"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div flex-xs flex-gt-xs="50" layout="column">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{user.name}}  {{user.firstSurname}} {{user.lastSurname}}</span>
+                <span class="md-subhead">{{user.username}} ({{(user.status | lowercase) || 'offline'}})</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"><img ng-src="images/{{user.thumbnail}}"></div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="callConfirmation()">
+                <md-icon md-font-icon="fa fa-video-camera"></md-icon>
+            </md-button>
+            <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="createRoom('AUDIO')">
+                <md-icon md-font-icon="fa fa-volume-up"></md-icon>
+            </md-button>
+            <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="createEvent()">
+                <md-icon md-font-icon="fa fa-calendar"></md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card>
 </div>

@@ -95,7 +95,7 @@
             }]);
         }])
 
-        .constant('SERVER_URL', 'http://localhost:3000/app');
+        .constant('SERVER_URL', 'http://localhost:8000/app');
 
 
 }());
