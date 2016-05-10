@@ -1,10 +1,12 @@
-<div class="modal-header">
-    <h3>Waiting for response</h3>
-</div>
-<div class="modal-body text-center">
-    <i class="fa fa-spinner fa-spin fa-4x"></i>
-</div>
-<div class="modal-footer">
-    <!--<button class="btn btn-warning" ng-click="cancel()">Cancel</button>-->
-    <button class="btn btn-warning" ng-click="confirm()"><i class="fa fa-phone"></i></button>
-</div>
+<md-dialog aria-label="Call Confirmation)" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Waiting for response</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <md-icon md-font-icon="fa fa-spinner fa-spin fa-4x"></md-icon>
+        </div>
+    </md-dialog-content>
+</md-dialog>

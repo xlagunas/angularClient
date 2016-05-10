@@ -10,7 +10,7 @@
             </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="callConfirmation()">
+            <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="callConfirmation($event)">
                 <md-icon md-font-icon="fa fa-video-camera"></md-icon>
             </md-button>
             <md-button ng-disabled="user.status == 'OFFLINE' || !user || !user.status" ng-click="createRoom('AUDIO')">
