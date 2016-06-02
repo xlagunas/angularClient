@@ -1,10 +1,21 @@
-<div class="modal-header">
-    <h3>Incoming call</h3>
-</div>
-<div class="modal-body text-center">
-    <p><image ng-src="{{user.thumbnail}}"/> {{user.name}} {{user.firstSurname}} {{user.lastSurname}}</p>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-    <button class="btn btn-primary" ng-click="confirm()"><i class="fa fa-phone"></i></button>
-</div>
+<md-dialog aria-label="Call Confirmation" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Incoming Call</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p><image ng-src="{{user.thumbnail}}"/> {{user.name}} {{user.firstSurname}} {{user.lastSurname}}</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()">
+            Cancel
+        </md-button>
+        <md-button ng-click="answer()">
+            <md-icon md-font-icon="fa fa-phone"></md-icon>
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

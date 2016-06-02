@@ -3,8 +3,8 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_', '$sessionStorage',
-        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage) {
+        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_', '$sessionStorage', '$mdDialog',
+        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage, $mdDialog) {
             $log.info('Entro al main controller!');
 
             $scope.contactList = {loaded: false};
@@ -145,40 +145,40 @@
             }
 
             WebsocketService.on('call:invite', function(data){
-                console.log(data);
-                $modal.open({
-                    templateUrl: 'views/modals/callReception.html',
-                    resolve: {
-                        user: function() {
-                            return  _.find(UserService.getUsers().accepted, function (user) {
-                                return (user._id === data.caller);
-                            });
-                        }
-                    },
-                    controller: function($scope, $log, user, $timeout) {
-                        $log.info(user);
-                        $scope.user = user;
+                var info = data;
+                $mdDialog.show({
+                        templateUrl: 'views/modals/callReception.html',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose:true,
+                        fullscreen: false,
+                        resolve: {
+                            user: function() {
+                                return  _.find(UserService.getUsers().accepted, function (user) {
+                                    return user._id === info.caller._id;
+                                });
+                            }},
+                        controller: function ($scope, $mdDialog, $log, user, $timeout) {
+                            $scope.user = user;
 
-                        var promise = $timeout(function() {
-                            $log.info('execute timeout');
-                            $scope.$dismiss();
-                        }, 10000, false);
+                            $scope.answer = function() {
+                                $timeout.cancel(promise);
+                                $mdDialog.hide(true)
+                            };
 
-                        $scope.confirm = function() {
-                            $timeout.cancel(promise);
-                            $log.info('confirmed');
-                            $scope.$close(true);
-                        };
-                        $scope.cancel = function() {
-                            //cancel -> rejection, not answering -> lost call
-                            $timeout.cancel(promise);
-                            $log.info('cancel');
-                            $scope.$close(false);
-                        };
+                            $scope.cancel = function() {
+                                $timeout.cancel(promise);
+                                $mdDialog.cancel();
+                            };
 
-                    }
-                })
-                .result.then(function (result) {
+                            $log.info(user);
+                            $scope.user = user;
+
+                            var promise = $timeout(function() {
+                                $log.info('execute timeout');
+                                $scope.cancel();
+                            }, 10000, false);
+                        }})
+                .then(function(result) {
                     $log.info(result);
                     $log.info('going to call: '+data._id);
                     if (result !== null && result === true){
@@ -191,7 +191,6 @@
                         WebsocketService.emit('call:reject', {id: data._id, status: 'CANCELLED'});
                     }
                 });
-
             });
         }]);
 }());
