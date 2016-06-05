@@ -1,9 +1,10 @@
 (function() {
     'use strict';
 
-
     angular.module('angularClientApp')
-        .controller('CreateEventCtrl',['$scope', 'UserService', '$log', '_', 'event', function($scope, UserService, $log, _, event) {
+        .controller('createEventCtrl',['$scope', 'UserService', '$log', '_', 'event','$mdDialog', function($scope, UserService, $log, _, event, $mdDialog) {
+
+            $log.info("Loading the controller");
 
             $scope.selectedContacts = [];
             $scope.selfUser = UserService.getSession();
@@ -79,7 +80,7 @@
 
             $scope.dismiss = function() {
                 $log.info('dismiss');
-                $scope.$dismiss();
+                $mdDialog.cancel();
             };
 
             $scope.save = function() {
@@ -87,7 +88,7 @@
                 $log.info($scope.newEvent);
                 $scope.newEvent.type = 'create';
                 $scope.newEvent.users = _.pluck($scope.selectedContacts, 'id');
-                $scope.$close($scope.newEvent);
+                $mdDialog.hide($scope.newEvent);
             };
 
             $scope.delete = function() {
@@ -95,7 +96,7 @@
                 $log.info('removing event');
                 $log.info($scope.newEvent);
                 $log.info($scope.type);
-                $scope.$close($scope.newEvent);
+                $mdDialog.hide($scope.newEvent);
 
             };
         }]);

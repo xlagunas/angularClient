@@ -1,31 +1,33 @@
 (function() {
     'use strict';
 
-
     angular.module('angularClientApp')
-        .controller('CalendarCtrl', ['$scope', 'EventService', '$log', '$modal', 'WebsocketService',
-        function ($scope, EventService, $log, $modal, WebsocketService) {
+        .controller('CalendarCtrl', ['$scope', 'EventService', '$log', '$modal', 'WebsocketService', '$mdDialog',
+        function ($scope, EventService, $log, $modal, WebsocketService, $mdDialog) {
 
             $scope.alertOnEventClick = function(event){
-                event.type = 'edit';
-                $modal.open({
+                $mdDialog.show({
                     templateUrl: 'views/modals/addCalendarEvent.html',
-                    controller: 'CreateEventCtrl',
+                    parent: angular.element(document.body),
+                    clickOutsideToClose:true,
+                    controller: ['$scope', function($scope) {
+                        $scope.dismiss = function() {
+                            $mdDialog.cancel()
+                        };
+
+                        $scope.save = function() {
+                            $mdDialog.hide(true);
+                        };
+                    }],
                     resolve: {
                         event: function() {
-                            return event;
+                            return 'edit';
                         }
                     }
                 })
-                .result.then(function(result) {
+                .then(function(result) {
                     if (result) {
-//                        Create should never be called in that method!
-                        if (result.type === 'create'){
-                            result.start = result.start -result.start.getTimezoneOffset()*60000;
-                            $log.info(result);
-                            WebsocketService.emit('calendar:createEvent', result);
-                        }
-                        else if (result.type === 'delete'){
+                        if (result.type === 'delete'){
                             $log.info('entra al delete');
                             $log.info(result);
                             WebsocketService.emit('calendar:removeUser', {id: result._id});
@@ -39,12 +41,19 @@
             };
 
             $scope.createEvent = function () {
-                $modal.open({
-                    templateUrl: 'views/modals/addCalendarEvent.html',
-                    controller: 'CreateEventCtrl',
-                    resolve: {event: {}}
-                })
-                .result.then(function(result) {
+                $log.info("Clicking");
+                $mdDialog.show({
+                        templateUrl: 'views/modals/addCalendarEvent.html',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose:true,
+                        resolve: {
+                            event: function() {
+                                return event;
+                            }
+                        },
+                        controller: 'createEventCtrl'
+                    })
+                .then(function(result) {
                     if (result) {
                         if (result.type === 'create'){
                             result.start = result.start -result.start.getTimezoneOffset()*60000;

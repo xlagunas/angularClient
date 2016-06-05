@@ -23,7 +23,7 @@
 
                 $modal.open({
                     templateUrl: 'views/modals/addCalendarEvent.html',
-                    controller: 'CreateEventCtrl',
+                    controller: 'createEventCtrl',
                     resolve: {
                         event: function() {
                             return event;
