@@ -34,9 +34,7 @@
     </div>
 </nav>
 <div class="container-fluid col-md-12" on-drop-file="onDropFile(file)" drop>
-    <div class="col-md-3 col-xs-3">
-        <local-video on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
-    </div>
+    <local-video flex="30" on-success="onSuccess" on-error="onError()" user="localSpeaker"></local-video>
     <div ng-class="(speakers.length > 1) ? 'col-md-4 col-xs-4' : 'col-md-9 col-xs-9'" ng-repeat="speaker in speakers">
         <remote-video user="speaker" conference="{{conference.id}}" on-close="closeStream" on-message-received="rcvMessage(message)"></remote-video>
     </div>
