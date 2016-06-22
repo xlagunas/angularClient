@@ -11,7 +11,8 @@
             templateUrl: 'views/directives/contact-item.html',
             restrict: 'E',
             replace: 'true',
-            controller: ['$scope', '$state', function ($scope, $state) {
+            controller: ['$scope', '$state', 'SERVER_URL', function ($scope, $state, SERVER_URL) {
+                $scope.serverUrl = SERVER_URL;
                 $scope.displayContactInfo = function () {
                     $state.go('main.contact', {id: $scope.contact._id});
                 };

@@ -3,10 +3,11 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_', '$sessionStorage',
-        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage) {
+        .controller('MainCtrl', ['$scope', '$state', '$timeout', '$log', '$modal', 'UserService', 'EventService', 'WebsocketService',  '_', '$sessionStorage','SERVER_URL',
+        function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage, SERVER_URL) {
             $log.info('Entro al main controller!');
 
+          $scope.serverUrl = SERVER_URL;
             $scope.contactList = {loaded: false};
             $scope.visibleColumns = {actions: false, contacts: false};
             $scope.mainContentSizeClass = {value: 'col-lg-10 col-md-10 col-xs-9'};

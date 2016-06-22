@@ -2,8 +2,11 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ManagementCtrl', ['$scope', 'UserService', '$log', 'WebsocketService',
-        function ($scope, UserService, $log, WebsocketService) {
+        .controller('ManagementCtrl', ['$scope', 'UserService', '$log', 'WebsocketService','SERVER_URL',
+        function ($scope, UserService, $log, WebsocketService, SERVER_URL) {
+
+            $log.info('serverUrl: '+SERVER_URL);
+            $scope.serverUrl = SERVER_URL;
             $scope.mngCategories = [
                 {category: 'ALL', name: 'all'},
                 {category: 'ACCEPTED', name: 'accepted'},

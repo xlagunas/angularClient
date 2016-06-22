@@ -2,9 +2,10 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ContactCtrl', ['$scope', '$stateParams', '$log', '$modal', 'UserService','_','WebsocketService',
-        function ($scope, $stateParams, $log,  $modal, UserService, _, WebsocketService) {
+        .controller('ContactCtrl', ['$scope', '$stateParams', '$log', '$modal', 'UserService','_','WebsocketService', 'SERVER_URL',
+        function ($scope, $stateParams, $log,  $modal, UserService, _, WebsocketService, SERVER_URL) {
             $log.info('id:' +$stateParams.id);
+            $scope.serverUrl = SERVER_URL;
             if ($stateParams.id === UserService.getSession()._id || $stateParams.id === null || $stateParams.id === ''){
                 $scope.user = UserService.getSession();
                 console.log($scope.user);

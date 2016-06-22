@@ -2,7 +2,7 @@
     <li class="row text-center no-margin no-padding" ng-repeat="contact in foundUsers" >
         <div class="container" style="background-color: #f5f5f5;">
             <div class="col-md-3">
-                <img height="100px" ng-src="/images/{{contact.thumbnail}}">
+                <img height="100px" ng-src="{{serverUrl}}/images/{{contact.thumbnail}}">
             </div>
             <div class="col-md-9">
                 <h4>{{contact.name}} {{contact.firstSurname}} {{contact.lastSurname}}</h4>

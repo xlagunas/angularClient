@@ -31,7 +31,7 @@
                         <span class="label" ng-class="status">{{status}}</span>
                     </div>
                     <div class="row">
-                        <img ng-src="/images/{{user.thumbnail}}" style="height: 88px;">
+                      <img ng-src="{{serverUrl}}/images/{{user.thumbnail}}" style="height: 88px;">
                     </div>
                     <div class="row">
                         <span>{{user.name}} {{user.firstSurname}} {{user.lastSurname}}</span>
@@ -45,97 +45,3 @@
         </div>
     </div>
 </div>
-<!--<tabset justified ="true">-->
-    <!--<tab heading="Accepted Contacts" >-->
-        <!--<table ng-show="{{mngedContacts.accepted.length > 0}}" class="table table-striped table-condensed">-->
-            <!--<thead>-->
-                <!--<th>Image</th>-->
-                <!--<th>Username</th>-->
-                <!--<th>Name</th>-->
-                <!--<th>Actions</th>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-                <!--<tr ng-repeat="accepted in mngedContacts.accepted">-->
-                    <!--<td><img ng-src="/images/{{accepted.thumbnail}}" height="80px"></td>-->
-                    <!--<td class="vertically-centered">{{accepted.username}}</td>-->
-                    <!--<td class="vertically-centered">{{accepted.name}} {{accepted.firstSurname}} {{accepted.lastSurname}}</td>-->
-                    <!--<td class="vertically-centered">-->
-                        <!--<button class="btn btn-default">-->
-                            <!--<i class="fa fa-trash-o"></i>-->
-                        <!--</button>-->
-                        <!--<button class="btn btn-default" ng-click="updateContact(accepted._id, 'accepted', 'blocked')">-->
-                            <!--<span class="fa-stack fa-lg">-->
-                              <!--<i class="fa fa-user fa-stack-1x"></i>-->
-                              <!--<i class="fa fa-ban fa-stack-2x text-danger"></i>-->
-                            <!--</span>-->
-                        <!--</button>-->
-                    <!--</td>-->
-                <!--</tr>-->
-        <!--</table>-->
-    <!--</tab>-->
-    <!--<tab heading="Requested Contacts">-->
-        <!--<table ng-show="{{mngedContacts.requested.length > 0}}" class="table table-striped table-condensed">-->
-            <!--<thead>-->
-            <!--<th>Image</th>-->
-            <!--<th>Username</th>-->
-            <!--<th>Name</th>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr ng-repeat="requested in mngedContacts.requested">-->
-                <!--<td class="vertically-centered"><img ng-src="/images/{{requested.thumbnail}}" height="80px"></td>-->
-                <!--<td class="vertically-centered">{{requested.username}}</td>-->
-                <!--<td class="vertically-centered">{{requested.name}} {{requested.firstSurname}} {{requested.lastSurname}}</td>-->
-                <!--<td class="vertically-centered">-->
-                    <!--<button class="btn btn-default" ng-click="updateContact(requested._id, 'requested','accepted')">-->
-                        <!--<i class="fa fa-check text-success"></i>-->
-                    <!--</button>-->
-                    <!--<button class="btn btn-default" ng-click="updateContact(requested._id, 'requested','blocked')">-->
-                        <!--<i class="fa fa-times text-danger"></i>-->
-                    <!--</button>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</tab>-->
-    <!--<tab heading="Pending Contacts">-->
-        <!--<table ng-show="{{mngedContacts.pending.length > 0}}" class="table table-striped table-condensed">-->
-            <!--<thead>-->
-            <!--<th>Image</th>-->
-            <!--<th>Username</th>-->
-            <!--<th>Name</th>-->
-            <!--<th>Actions</th>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr ng-repeat="pending in mngedContacts.pending">-->
-                <!--<td><img ng-src="/images/{{pending.thumbnail}}" height="80px"></td>-->
-                <!--<td class="vertically-centered">{{pending.username}}</td>-->
-                <!--<td class="vertically-centered">{{pending.name}} {{pending.firstSurname}} {{pending.lastSurname}}</td>-->
-                <!--<td class="vertically-centered">-->
-                    <!--<button class="btn btn-default" ng-click="updateContact(pending._id, 'pending','accepted')">-->
-                        <!--<i class="fa fa-check text-success"></i>-->
-                    <!--</button>-->
-                    <!--<button class="btn btn-default" ng-click="updateContact(pending._id, 'pending','blocked')">-->
-                        <!--<i class="fa fa-times text-danger"></i>-->
-                    <!--</button>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</tab>-->
-    <!--<tab heading="Blocked Contacts">-->
-        <!--<table ng-show="{{mngedContacts.blocked.length > 0}}"class="table table-striped table-condensed">-->
-            <!--<thead>-->
-            <!--<th>Image</th>-->
-            <!--<th>Username</th>-->
-            <!--<th>Name</th>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr ng-repeat="blocked in mngedContacts.blocked">-->
-                <!--<td class="vertically-centered"><img ng-src="/images/{{blocked.thumbnail}}" height="80px"></td>-->
-                <!--<td class="vertically-centered">{{blocked.username}}</td>-->
-                <!--<td class="vertically-centered">{{blocked.name}} {{blocked.firstSurname}} {{blocked.lastSurname}}</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</tab>-->
-<!--</tabset>-->
-
-
-
