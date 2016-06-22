@@ -8,7 +8,7 @@
             <ul class="media-list" style="height: 400px; overflow-y: scroll;" auto-scroll="messages">
                 <li class="media" ng-repeat="msg in messages">
                     <div ng-class="msg.imagePos">
-                        <img class="media-object" ng-src="/images/{{msg.image}}" style="height: 64px;">
+                        <img class="media-object" ng-src="{{serverUrl}}/images/{{msg.image}}" style="height: 64px;">
                     </div>
                     <div ng-hide="msg.data" class="media-body" ng-class="msg.textAlign">
                         <h5 class="media-heading">{{msg.user}} </h5>

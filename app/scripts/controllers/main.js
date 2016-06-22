@@ -7,7 +7,7 @@
         function ($scope, $state, $timeout, $log, $modal, UserService, EventService, WebsocketService,  _, $sessionStorage, SERVER_URL) {
             $log.info('Entro al main controller!');
 
-          $scope.serverUrl = SERVER_URL;
+            $scope.serverUrl = SERVER_URL;
             $scope.contactList = {loaded: false};
             $scope.visibleColumns = {actions: false, contacts: false};
             $scope.mainContentSizeClass = {value: 'col-lg-10 col-md-10 col-xs-9'};
@@ -146,19 +146,21 @@
             }
 
             WebsocketService.on('call:invite', function(data){
-                console.log(data);
+                var info = data;
                 $modal.open({
                     templateUrl: 'views/modals/callReception.html',
                     resolve: {
                         user: function() {
+                            $log.info(data.caller);
                             return  _.find(UserService.getUsers().accepted, function (user) {
-                                return (user._id === data.caller);
+                                return (user._id === info.caller._id);
                             });
                         }
                     },
-                    controller: function($scope, $log, user, $timeout) {
+                    controller: function($scope, $log, user, $timeout, SERVER_URL) {
                         $log.info(user);
                         $scope.user = user;
+                        $scope.serverUrl = SERVER_URL;
 
                         var promise = $timeout(function() {
                             $log.info('execute timeout');
