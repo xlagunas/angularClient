@@ -32,6 +32,10 @@
                 $scope.takeImage = true;
             });
 
+            WebsocketService.on('user:createError', function(data){
+                $log.info('Error creating user: '+data);
+            });
+
         }]);
 
 }());
