@@ -24,20 +24,20 @@
                 WebsocketService.emit('login', $scope.user);
             };
 
-            WebsocketService.on('login', function(retVal){
-                $log.info('Entra al onLogin');
-                if (retVal.status === 'error'){
-                    $log.info(retVal);
+            WebsocketService.on('login', function(user){
+                if (user.isLdap){
+                    user.password = password;
+                    $log.info(user);
                 }
-                else if (retVal.status === 'success'){
-                    if (retVal.user.isLdap){
-                        retVal.user.password = password;
-                        $log.info(retVal.user);
-                    }
-                    $scope.$storage.user = retVal.user;
-                    UserService.setSession(retVal.user);
-                    $state.go('main.landing');
-                }
+                $scope.$storage.user = user;
+                UserService.setSession(user);
+                $state.go('main.landing');
+            });
+
+            WebsocketService.on('loginError', function(data){
+                $log.info(data);
+                $scope.user.username = '';
+                $scope.user.password = '';
             });
 
         }]);
