@@ -6,7 +6,7 @@
             <span class="label label-default" hover="label-primary">Accepted</span>
             <span class="label label-default" hover="label-success">Requested </span>
             <span class="label label-default" hover="label-warning">Pending</span>
-            <span class="label label-default" hover="label-danger">Blocked</span>
+            <!--<span class="label label-default" hover="label-danger">Blocked</span>-->
         </div>
     </div>
     <div class="panel-body">
@@ -19,11 +19,11 @@
                                 <i class="fa fa-gears"></i> <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li ng-show="status=='requested'"><a href="" ng-click="updateContact(user._id, 'requested','accepted')"><i class="fa fa-check pull-left online"/> <span><b>Accept</b></span></a></li>
-                                <li ng-show="status=='requested'"><a href="" ng-click="updateContact(user._id, 'requested','deleted')"><i class="fa fa-times pull-left busy"/> <span><b>Reject</b></span></a></li>
-                                <li ng-show="status == 'accepted'"><a href="" ng-click="updateContact(user._id, 'accepted','blocked')"><i class="fa fa-ban pull-left busy"/> <span><b>Lock</b></span></a></li>
-                                <li ng-show="status == 'blocked'"><a href="" ng-click="updateContact(user._id, 'blocked','accepted')"><i class="fa fa-unlock-alt pull-left online"/> <span><b>Unlock</b></span></a></li>
-                                <li ng-show="status == 'accepted'"><a href="" ng-click="updateContact(user._id, 'accepted','deleted')"><i class="fa fa-trash-o pull-left"/> <span><b>Delete</b></span></a></li>
+                                <li ng-show="status=='requested'"><a href="" ng-click="acceptContact(user._id)"><i class="fa fa-check pull-left online"/> <span><b>Accept</b></span></a></li>
+                                <li ng-show="status=='requested'"><a href="" ng-click="rejectContact(user._id)"><i class="fa fa-times pull-left busy"/> <span><b>Reject</b></span></a></li>
+                                <!--<li ng-show="status == 'accepted'"><a href="" ng-click="updateContact(user._id, 'accepted','blocked')"><i class="fa fa-ban pull-left busy"/> <span><b>Lock</b></span></a></li>-->
+                                <!--<li ng-show="status == 'blocked'"><a href="" ng-click="updateContact(user._id, 'blocked','accepted')"><i class="fa fa-unlock-alt pull-left online"/> <span><b>Unlock</b></span></a></li>-->
+                                <li ng-show="status == 'accepted'"><a href="" ng-click="deleteContact(user._id)"><i class="fa fa-trash-o pull-left"/> <span><b>Delete</b></span></a></li>
                             </ul>
                         </div>
                     </div>

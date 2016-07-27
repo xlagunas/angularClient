@@ -23,6 +23,20 @@
                 $log.info(msg);
                 WebsocketService.emit('contacts:update_list',msg);
             };
+
+            $scope.deleteContact = function(contact){
+                WebsocketService.emit('contacts:delete', {_id: contact});
+            };
+
+            $scope.rejectContact = function(contact){
+                WebsocketService.emit('contacts:reject', {_id: contact});
+            };
+
+            $scope.acceptContact = function(contact){
+                WebsocketService.emit('contacts:accept', {_id: contact});
+            };
+
+
         }]);
 
 }());
