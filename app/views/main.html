@@ -22,7 +22,7 @@
                 <li><a ui-sref="main.management"><i class="fa fa-users fa-2x icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><img ng-src="/images/{{userSession.thumbnail}}" height="50px"></li>
+                <li><img ng-src="{{serverUrl}}/images/{{userSession.thumbnail}}" height="50px"></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userSession.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -37,29 +37,6 @@
     </div>
 </nav>
 
-<!--<div class="col-md-1 col-lg-1 col-sm-1" ng-hide="visibleColumns.actions">-->
-    <!--<div class="row">-->
-        <!--<nav class="col-lg-1 col-md-1 col-sm-1">-->
-            <!--<ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">-->
-                <!--<ul class="col-md-12 col-lg-12 col-sm-12 list-unstyled text-center">-->
-                    <!--&lt;!&ndash;<li><i class="fa fa-envelope fa-3x list-icon-padding icon-color"></i></li>&ndash;&gt;-->
-                    <!--<li><a ui-sref="main.calendar"><i class="fa fa-calendar fa-3x list-icon-padding icon-color"></i></a></li>-->
-                    <!--<li>-->
-                        <!--<a ui-sref="main.management">-->
-                            <!--<i class="fa fa-users fa-3x list-icon-padding icon-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li><a ng-hide="conference" ui-sref="main.conference({id: conference.id})">-->
-                            <!--<i class="fa fa-video-camera fa-3x list-icon-padding icon-color update-color" ng-class="{'update-color': userContacts.requested.length>0}"></i>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li><a ui-sref="main.landing"><i class="fa fa-phone-square fa-3x" style="color: red;"></i></a></li>-->
-
-                <!--</ul>-->
-            <!--</ul>-->
-        <!--</nav>-->
-    <!--</div>-->
-<!--</div>-->
 <div class="col-md-2 col-lg-2 col-sm-2 col-xs-3" ng-hide="visibleColumns.contacts" style="height: 100%">
     <div ng-if="contactList.loaded" style="height: 100%">
         <div class="row">

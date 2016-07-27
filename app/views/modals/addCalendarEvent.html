@@ -28,7 +28,7 @@
             <ul id="selected" class="list-group">
                 <li ng-repeat="user in selectedContacts"class="list-group-item">
                     <p>{{user.name}} {{user.firstSurname}} {{user.lastSurname}}
-                        <button ng-hide="{{selfUser.id === user.id}}" class="btn btn-default btn-xs pull-right" ng-click="removeUser(user)"><i class="fa fa-times-circle"></i></button>
+                        <button ng-hide="selfUser.id === user.id" class="btn btn-default btn-xs pull-right" ng-click="removeUser(user)"><i class="fa fa-times-circle"></i></button>
                     </p>
                 </li>
             </ul>

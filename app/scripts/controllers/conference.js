@@ -2,12 +2,13 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ConferenceCtrl', ['$scope', '$log', '$stateParams', 'WebsocketService', 'UserService', '$modal','$state',
-        function ($scope, $log, $stateParams, WebsocketService, UserService, $modal, $state) {
+        .controller('ConferenceCtrl', ['$scope', '$log', '$stateParams', 'WebsocketService', 'UserService', '$modal','$state','SERVER_URL',
+        function ($scope, $log, $stateParams, WebsocketService, UserService, $modal, $state, SERVER_URL) {
             $scope.speakers = [];
             $scope.localSpeaker = UserService.getSession();
             $scope.conference = {id: $stateParams.id};
             $scope.chatMessages = [];
+            $scope.serverUrl = SERVER_URL;
 
             $scope.onDropFile = function(file){
                 $log.log('dropFile in controller received!');

@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('LandingCtrl',['$scope', '$log', 'EventService' ,function ($scope, $log, EventService) {
+        .controller('LandingCtrl',['$scope', '$log', 'EventService', 'SERVER_URL' ,function ($scope, $log, EventService, SERVER_URL) {
             $scope.awesomeThings = [
                 'HTML5 Boilerplate',
                 'AngularJS',
@@ -13,6 +13,7 @@
 
             $scope.method();
 
+            $scope.serverUrl = SERVER_URL;
             $scope.drop = function (file) {
                 console.log(file);
             };

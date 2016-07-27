@@ -28,8 +28,9 @@
                         );
                     }
                 },
-                controller: ['$scope', function($scope) {
+                controller: ['$scope', 'SERVER_URL', function($scope, SERVER_URL) {
                     $scope.show = false;
+                    $scope.serverUrl = SERVER_URL;
                     $scope.toggleChat = function () {
                         $scope.show = !$scope.show;
                     };

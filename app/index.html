@@ -9,6 +9,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css({.tmp,app}) styles/main.css -->
@@ -39,18 +40,17 @@
        ga('send', 'pageview');
     </script>
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
 
-    <!--<script src="http://192.168.10.195:3000/socket.io/socket.io.js"></script>-->
-    <!--<script src="http://192.168.10.195:3000/socket.io/socket.io.js"></script>-->
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
 
     <!-- build:js scripts/plugins.js -->
     	<script src="scripts/adapter.js"></script>
-	<script src="bower_components/sass-bootstrap/js/affix.js"></script>
+	    <script src="bower_components/sass-bootstrap/js/affix.js"></script>
         <script src="bower_components/sass-bootstrap/js/alert.js"></script>
         <script src="bower_components/sass-bootstrap/js/button.js"></script>
         <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
@@ -71,11 +71,10 @@
         <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-        <!--<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>-->
-        <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+        <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-        <script type="text/javascript" src="bower_components/fullcalendar/fullcalendar.js"></script>
-        <script type="text/javascript" src="bower_components/fullcalendar/gcal.js"></script>
+        <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+        <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
         <script type="text/javascript" src="bower_components/ngstorage/ngStorage.js"></script>
         <script type=text/javascript>
             jQuery.event.props.push('dataTransfer');
