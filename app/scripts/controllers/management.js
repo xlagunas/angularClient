@@ -18,12 +18,6 @@
             $scope.mngedContacts = UserService.getUsers();
             $scope.contactList = UserService.getUsers();
 
-            $scope.updateContact = function (_id, current, future) {
-                var msg = {_id: _id, current: current, future: future};
-                $log.info(msg);
-                WebsocketService.emit('contacts:update_list',msg);
-            };
-
             $scope.deleteContact = function(contact){
                 WebsocketService.emit('contacts:delete', {_id: contact});
             };
