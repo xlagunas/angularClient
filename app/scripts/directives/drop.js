@@ -62,7 +62,7 @@
                             .result.then(function(result){
                                 if (result){
                                     $log.log(user._id);
-                                    WebsocketService.emit('call:invite',{id: user._id, call: {type: 'JOIN', id: $stateParams.id}});
+                                    WebsocketService.emit('call:addUserToCall', {userId: user._id, callId: $stateParams.id});
                                     $log.log('emitted');
                                 }
                             });

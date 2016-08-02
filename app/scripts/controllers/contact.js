@@ -61,6 +61,7 @@
                         };
 
                         WebsocketService.on('call:accept', function(msg){
+                            console.log('call:accept received');
                             $log.info(msg);
                             $timeout.cancel(promise);
                             if (typeof $scope.$close === 'function'){
@@ -106,7 +107,7 @@
                 })
                 .result.then(function(result){
                     if (result){
-                        WebsocketService.emit('call:invite',{id: $scope.user._id, call: {type: 'CREATE'}});
+                        WebsocketService.emit('call:invite',{id: $scope.user._id});
                         $scope.waitingResponseDialog();
                     }
                 });
