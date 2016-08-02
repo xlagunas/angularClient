@@ -6,8 +6,6 @@
         .service('WebsocketService', ['$log', '$rootScope', 'SERVER_URL',function WebsocketService($log, $rootScope, SERVER_URL) {
 
             var socket = io.connect(SERVER_URL);
-            //var socket = io.connect();
-//            var socket = io.connect('http://192.168.10.195:3000');
 
             return {
                 on: function (eventName, callback) {

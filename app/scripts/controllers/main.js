@@ -45,6 +45,7 @@
 
             $scope.logout = function (){
                 $log.debug('crido al logout');
+                WebsocketService.emit('logout', {});
                 $sessionStorage.$reset();
                 $state.transitionTo('login');
             };
