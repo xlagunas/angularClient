@@ -3,9 +3,9 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .service('WebsocketService', ['$log', '$rootScope', function WebsocketService($log, $rootScope) {
+        .service('WebsocketService', ['$log', '$rootScope', 'SERVER_URL',function WebsocketService($log, $rootScope, SERVER_URL) {
 
-            var socket = io.connect('http://127.0.0.1:3000');
+            var socket = io.connect(SERVER_URL);
             //var socket = io.connect();
 //            var socket = io.connect('http://192.168.10.195:3000');
 
