@@ -13,7 +13,18 @@
             replace: 'true',
             controller: ['$scope', '$state', 'SERVER_URL', function ($scope, $state, SERVER_URL) {
                 $scope.serverUrl = SERVER_URL;
-                $scope.displayContactInfo = function () {
+                if ($scope.contact.status !== 'ONLINE'){
+                    if ($scope.contact.isPhone) {
+                        $scope.contact.status = 'MOBILE';
+                        console.log('updating to mbile');
+                    } else {
+                        console.log('not updating to mobile');
+                    }
+                }
+
+                console.log($scope.contact);
+
+              $scope.displayContactInfo = function () {
                     $state.go('main.contact', {id: $scope.contact._id});
                 };
                 this.msg = function() {
