@@ -49,11 +49,16 @@
                                 {
                                     DtlsSrtpKeyAgreement: true
                                 }
-//                                },
-//                                {
-//                                    RtpDataChannels: true
-//                                }
                             ]});
+
+                        $scope.peer.oniceconnectionstatechange = function (){
+                            $log.log('iceConnectionState Change');
+                            $log.log($scope.peer.iceConnectionState);
+                            if ($scope.peer.iceConnectionState === 'disconnected' || $scope.peer.iceConnectionState === 'closed' ){
+                                $log.log('finished, notifying parent');
+                                $scope.onClose($scope.user.username);
+                            }
+                        };
 
                         $scope.peer.onicecandidate = function (event) {
                             if (!$scope.peer || !event || !event.candidate) {
@@ -124,8 +129,7 @@
                             $scope.peer.createOffer(function (sessionDescription) {
                                 $log.info('creating offer..');
                                 $scope.peer.setLocalDescription(sessionDescription);
-                                WebsocketService
-                                    .emit('webrtc:offer', {idCall: $scope.conference, idUser: $scope.user.id, offer: sessionDescription});
+                                WebsocketService.emit('webrtc:offer', {idCall: $scope.conference, idUser: $scope.user.id, offer: sessionDescription});
                             }, function (offerFailure) {
                                 $log.log(offerFailure);
                             }, {'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true }});
@@ -150,7 +154,13 @@
 
                         WebsocketService.on($scope.user.id + ':answer', function (msg) {
                             $log.info($scope.user.id + ':response incoming message');
+                            $log.debug('----------------------------------');
+                            $log.debug('----------------------------------');
+                            $log.debug('----------------------------------');
                             $log.debug(msg);
+                            $log.debug('----------------------------------');
+                            $log.debug('----------------------------------');
+                            $log.debug('----------------------------------');
                             $log.info('Setting remote description...');
                             $scope.peer.setRemoteDescription(new RTCSessionDescription(msg));
                         });
@@ -234,15 +244,6 @@
                     $scope.$on('fileMessage', function(event, data){
                         $log.log('fileMessageEvent al remote');
                         chunkify(data);
-                    });
-
-                    $scope.$watch('peer.iceConnectionState', function(){
-                        $log.log('iceConnectionState Change');
-                        $log.log($scope.peer.iceConnectionState);
-                        if ($scope.peer.iceConnectionState === 'disconnected' || $scope.peer.iceConnectionState === 'closed' ){
-                            $log.log('finished, notifying parent');
-                            $scope.onClose($scope.user.username);
-                        }
                     });
 
                     $scope.debug = function() {

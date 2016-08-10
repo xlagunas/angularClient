@@ -46,6 +46,7 @@
             $scope.onSuccess = function(localStream) {
                 $log.info('Entro al onSuccess!!!!');
                 UserService.setLocalStream(localStream);
+                $log.log("is user conferencing? "+UserService.isConferencing());
                 if (!UserService.isConferencing()){
                     WebsocketService.emit('call:register', {id: $stateParams.id});
                     UserService.setConferencing({id: $stateParams.id});
@@ -57,6 +58,9 @@
                 $log.info('Entro al onError :(:(:(');
             };
 
+            //This message brings us data about a new user which just connected the room.
+            //we send back a message to the server telling him to notify this new user about our own data
+            //In addition, we will be the offer creators with this user
             WebsocketService.on('call:addUser', function (user){
                 $log.info('new User added to conference');
                 $log.info(user);
@@ -72,6 +76,9 @@
                 $scope.$broadcast('exit', user);
             });
 
+            //This message is received for every connected user in the conference room. It gives us
+            //information about who is the user behind that connection.
+            //In addition, we will be the answer creators with this user.
             WebsocketService.on('call:userDetails', function (user){
                 $log.info('call to userDetails');
                 $log.info(user);
@@ -85,16 +92,21 @@
                     if ($scope.speakers[i].username === username){
                         $log.log('speaker found');
                         $scope.speakers.splice(i,1);
+                        $scope.$apply();
                     }
+                }
+                $log.log('total speakers length: ' +$scope.speakers.length);
+                if ($scope.speakers.length === 0){
+                    $scope.exitConference();
                 }
             };
 
             $scope.exitConference = function() {
                 $log.log('exitConference');
                 WebsocketService.emit('call:unregister', {id: $stateParams.id});
+                UserService.setConferencing(false);
                 $scope.$broadcast('finish', {});
                 $state.go('main.landing');
-//                $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
             };
 
             $scope.shareDesktop = function () {

@@ -10,7 +10,6 @@
                     'user'          : '=',
                     'onSuccess'     : '=',
                     'onError'       : '&'
-//                    'constraints'   : '='
                 },
                 templateUrl : 'views/directives/local-video.html',
                 restrict: 'E',
@@ -22,15 +21,6 @@
                 },
                 controller: ['$scope', '$sce', '$log', 'UserService', function ($scope, $sce, $log, UserService) {
                     var fullStream = {};
-
-//                    $scope.$watch('constraints', function(){
-//                        $log.log('from directive constraints');
-//                        $log.log($scope.constraints);
-//                        if ($scope.constraints){
-//                            $scope.startMedia();
-//                        }
-//                    });
-
 
                     $scope.startMedia = function () {
                         $log.log('starting Media');
@@ -46,10 +36,10 @@
                     function getMedia () {
                         getUserMedia(UserService.getConstraints(), function(localStream) {
                                 $scope.$apply(function(){
-                                    localStream.onended = function () {
-                                        $log.log('entra al onended i setejo la conference a null');
-                                        UserService.setConferencing();
-                                    };
+                                    //localStream.onended = function () {
+                                    //    $log.log('entra al onended i setejo la conference a null');
+                                    //    UserService.setConferencing(false);
+                                    //};
 
                                     fullStream = localStream;
                                     if (!UserService.getConstraints().video.mandatory){
@@ -90,10 +80,13 @@
 
                     $scope.$on('finish', function (){
                         $log.log('Closing localStream');
+                        fullStream.getTracks().forEach(function(track){
+                            track.stop();
+                        });
+
                         URL.revokeObjectURL($scope.user.stream);
-                        fullStream.stop();
                         $scope.videoElement.src = null;
-                        UserService.setConferencing(null);
+                        UserService.setConferencing(false);
                     });
                 }]
             };
