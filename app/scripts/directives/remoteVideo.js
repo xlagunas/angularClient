@@ -24,13 +24,14 @@
                 controller: ['$scope', '$sce', '$log', 'WebsocketService', 'UserService',
                 function ($scope, $sce, $log, WebsocketService, UserService) {
                     var dataChannel = {};
+
                     var servers = {
                         'iceServers': [
-                            {'url': 'stun:stun.l.google.com:19302'},
-                            {'url': 'stun:stun1.l.google.com:19302'},
-                            {'url': 'stun:stun2.l.google.com:19302'},
-                            {'url': 'stun:stun3.l.google.com:19302'},
-                            {'url': 'stun:stun4.l.google.com:19302'}
+                            {
+                                url: 'turn:xlagunas.cat:3478', //your TURN server address here
+                                credential: 'X4v1', //actual hardcoded value
+                                username: 'Hercules' //actual hardcoded value
+                            }
                         ]
                     };
                     $scope.files = {};
