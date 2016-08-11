@@ -36,10 +36,10 @@
                     function getMedia () {
                         getUserMedia(UserService.getConstraints(), function(localStream) {
                                 $scope.$apply(function(){
-                                    //localStream.onended = function () {
-                                    //    $log.log('entra al onended i setejo la conference a null');
-                                    //    UserService.setConferencing(false);
-                                    //};
+                                    localStream.onended = function () {
+                                        $log.log('entra al onended i setejo la conference a null');
+                                        UserService.setConferencing(false);
+                                    };
 
                                     fullStream = localStream;
                                     if (!UserService.getConstraints().video.mandatory){

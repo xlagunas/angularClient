@@ -49,7 +49,8 @@
                 $log.log("is user conferencing? "+UserService.isConferencing());
                 if (!UserService.isConferencing()){
                     WebsocketService.emit('call:register', {id: $stateParams.id});
-                    UserService.setConferencing({id: $stateParams.id});
+                    //UserService.setConferencing({id: $stateParams.id});
+                    UserService.setConferencing(true);
                 }
 
             };
