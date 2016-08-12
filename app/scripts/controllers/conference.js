@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .controller('ConferenceCtrl', ['$scope', '$log', '$stateParams', 'WebsocketService', 'UserService', '$modal','$state','SERVER_URL',
-        function ($scope, $log, $stateParams, WebsocketService, UserService, $modal, $state, SERVER_URL) {
+        .controller('ConferenceCtrl', ['$scope', '$log', '$stateParams', 'WebsocketService', 'UserService', '$modal','$state','SERVER_URL', '$timeout',
+        function ($scope, $log, $stateParams, WebsocketService, UserService, $modal, $state, SERVER_URL, $timeout) {
             $scope.speakers = [];
             $scope.localSpeaker = UserService.getSession();
             $scope.conference = {id: $stateParams.id};
@@ -14,6 +14,9 @@
                 $log.log('dropFile in controller received!');
                 $scope.$broadcast('fileMessage', file);
             };
+
+            //global timeout when user is left alone in the room, giving margin to other users to connect before leaving
+            var promise;
 
             $scope.sendMessage = function(message) {
                 $log.log('From Controller');
@@ -70,6 +73,7 @@
                 //In the directive will look at this field to create an offer or wait for one
                 user.createOffer = true;
                 $scope.speakers.push(user);
+                $timeout.cancel(promise);
 
             });
 
@@ -85,6 +89,7 @@
                 $log.info(user);
                 user.createOffer = false;
                 $scope.speakers.push(user);
+                $timeout.cancel(promise);
             });
 
             $scope.closeStream = function (username) {
@@ -98,7 +103,11 @@
                 }
                 $log.log('total speakers length: ' +$scope.speakers.length);
                 if ($scope.speakers.length === 0){
-                    $scope.exitConference();
+                    promise = $timeout(function() {
+                        $log.info('execute timeout');
+                        $scope.exitConference();
+                    }, 10000, false);
+
                 }
             };
 
