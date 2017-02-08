@@ -5,7 +5,7 @@
     angular.module('angularClientApp')
         .service('WebsocketService', ['$log', '$rootScope', 'SERVER_URL',function WebsocketService($log, $rootScope, SERVER_URL) {
 
-            var socket = io.connect(SERVER_URL);
+            var socket = io.connect(SERVER_URL, {secure: true});
 
             return {
                 on: function (eventName, callback) {

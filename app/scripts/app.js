@@ -90,7 +90,7 @@
                 return $delegate;
             }]);
         }])
-        .constant('SERVER_URL', 'http://localhost:3000');
+        .constant('SERVER_URL', 'https://xlagunas.cat');
 
 
 }());
