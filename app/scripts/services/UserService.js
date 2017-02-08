@@ -3,12 +3,12 @@
     'use strict';
 
     angular.module('angularClientApp')
-        .service('UserService', ['$log', '_', function UserService($log, _) {
-        
+        .service('UserService', ['$log', '_', 'SERVER_URL', function UserService($log, _, SERVER_URL) {
+
             var user = {info:{}, conferencing: false};
             var contacts = {accepted: [], requested: [], pending: [], blocked: []};
             var constraints = { video: true, audio: true};
-        
+
             function addUser(user){
                 $log.debug('Adding User');
                 var u;
@@ -19,14 +19,14 @@
                     $log.info(existingUser);
                     return existingUser.info.username === user.username;
                 });
-        
+
                 if (!u){
                     u = {info: {}};
                     angular.copy(user, u.info);
                     contacts.push(u);
                 }
             }
-        
+
             function deleteUser(contactType, user){
                 $log.debug('Removing User');
                 var filteredContacts = _.filter(contacts[contactType], function(data){
@@ -34,7 +34,7 @@
                 });
                 angular.copy(filteredContacts, contacts);
             }
-        
+
             function getUsers(){
                 return contacts;
             }
@@ -48,16 +48,20 @@
                 $log.log('setting conference status to '+status);
                 user.conferencing = status;
             }
-        
+
             function addUsers(contactType, users){
                 $log.info('adding '+contactType+ 'users');
                 angular.copy(users, contacts[contactType]);
             }
-        
+
             function setSession(userData) {
+                if (userData.thumbnail.indexOf('http') === -1) {
+                    userData.thumbnail = SERVER_URL + '/images/' +userData.thumbnail;
+                }
+
                 user.info = userData;
             }
-        
+
             function getSession(){
                 return user.info;
             }
@@ -82,7 +86,7 @@
             function getConstraints () {
                 return constraints;
             }
-        
+
             return {
                 addUser : addUser,
                 addUsers: addUsers,

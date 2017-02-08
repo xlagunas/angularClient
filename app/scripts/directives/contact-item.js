@@ -13,6 +13,7 @@
             replace: 'true',
             controller: ['$scope', '$state', 'SERVER_URL', function ($scope, $state, SERVER_URL) {
                 $scope.serverUrl = SERVER_URL;
+
                 if ($scope.contact.status !== 'ONLINE'){
                     if ($scope.contact.isPhone) {
                         $scope.contact.status = 'MOBILE';
@@ -22,9 +23,9 @@
                     }
                 }
 
-                console.log($scope.contact);
+                $log.debug($scope.contact);
 
-              $scope.displayContactInfo = function () {
+                $scope.displayContactInfo = function () {
                     $state.go('main.contact', {id: $scope.contact._id});
                 };
                 this.msg = function() {
