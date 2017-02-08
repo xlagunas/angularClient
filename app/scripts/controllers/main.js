@@ -106,6 +106,12 @@
                         $scope.contactList.loaded = true;
                     }
                     Object.keys(contacts).forEach(function(key){
+                        contacts[key].forEach(function(contact){
+                            if (contact.thumbnail.indexOf('http') === -1) {
+                                $log.debug('modifying contact on login to match right image format');
+                                contact.thumbnail = SERVER_URL + '/images/' +contact.thumbnail;
+                            }
+                        });
                         UserService.addUsers(key, contacts[key]);
                     });
                 }
@@ -187,7 +193,7 @@
                     $log.info('going to call: '+data._id);
                     if (result !== null && result === true){
                         console.log('emitting call:accept');
-                        WebsocketService.emit('call:accept', {id: data._id, status: 'ANSWERED'});
+                        WebsocketService.emit('call:acccept', {id: data._id, status: 'ANSWERED'});
                         $state.go('main.conference',{id: data._id});
                     }
                     else if (result !== null && result === false){

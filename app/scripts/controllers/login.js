@@ -25,10 +25,6 @@
             };
 
             WebsocketService.on('login', function(user){
-                if (user.isLdap){
-                    user.password = password;
-                    $log.info(user);
-                }
                 $scope.$storage.user = user;
                 UserService.setSession(user);
                 $state.go('main.landing');
