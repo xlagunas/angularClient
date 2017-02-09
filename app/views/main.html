@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="main.landing">ConfApp</a>
+          <a class="navbar-brand" ui-sref="main.landing"><img src="/images/icon.png" width="30px"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userSession.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Edit user info<i class="pull-right fa fa-edit"></i></a></li>
+                        <!--<li><a href="#">Edit user info<i class="pull-right fa fa-edit"></i></a></li>-->
                         <li ng-click="toggleSideBar('contacts')"><a ng-click="toggleContacts()">Show contacts<i class="pull-right fa fa-users"></i></a></li>
                         <li class="divider"></li>
                         <li><a href="" ng-click="logout()">Log Out <i class="pull-right fa fa-sign-out"></i></a></li>
