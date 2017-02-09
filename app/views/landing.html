@@ -1,31 +1,7 @@
-<div class="header" drop on-drop-file="drop(file)">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ui-sref="main.secondary">Home</a></li>
-    <li><a ui-sref="main.contact">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">angularClient</h3>
-  <button class="btn btn-default"><img ng-src="{{serverUrl}}/images/{{userSession.thumbnail}}"></button>
+<div class="jumbotron">
+  <h1>Hello, {{userSession.name}}!</h1>
+  <p>Welcome back to Viv, the open source videconference app</p>
+  <p><img src="/images/icon.png" width="500px"> </p>
+  <p><a class="btn btn-primary btn-lg" href="https://github.com/xlagunas" role="button">Github <i class="fa fa-github"/></a></p>
 </div>
 
-<!--<div class="col-md-12 text-center" size>-->
-    <!--{{elementSize.width}} {{elementSize.height}}-->
-    <!--<h5>Welcome back {{userSession.name}}</h5>-->
-<!--</div>-->
-
-<!--<div class="col-md-6">-->
-    <!--<div ng-show="displayEvents && displayEvents.size >0" class="pull-left">-->
-        <!--<span class="text-center">You have {{displayEvents.size}} appointments for today</span>-->
-        <!--<ul class="list-unstyled">-->
-            <!--<li ng-repeat="event in displayEvents">{{event.title}}</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-    <!--<div ng-hide="displayEvents && displayEvents.size >0" class="pull-left">-->
-        <!--<span>You don't have any appointments today</span>-->
-    <!--</div>-->
-<!--</div>-->
-<!--<div class="col-md-6 class="text-center="">-->
-    <!--<div>-->
-        <!--<span>Call log</span>-->
-    <!--</div>-->
-    <!--<donut></donut>-->
-<!--</div>-->
