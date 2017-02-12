@@ -193,7 +193,7 @@
                     $log.info('going to call: '+data._id);
                     if (result !== null && result === true){
                         console.log('emitting call:accept');
-                        WebsocketService.emit('call:acccept', {id: data._id, status: 'ANSWERED'});
+                        WebsocketService.emit('call:accept', {id: data._id, status: 'ANSWERED'});
                         $state.go('main.conference',{id: data._id});
                     }
                     else if (result !== null && result === false){
